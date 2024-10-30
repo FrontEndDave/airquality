@@ -1,15 +1,19 @@
-import React, { useContext } from "react";
-import { ScrollView, RefreshControl } from "react-native";
 import { StatusBar } from "expo-status-bar";
+import React, { useContext } from "react";
+import { RefreshControl, ScrollView } from "react-native";
 
-import FavoriteLocations from "../../components/home/FavoriteLocations";
-import SearchInput from "../../components/home/Serch";
-import CurrentLocation from "../../components/home/CurrentLocation";
-import Hero from "../../components/home/Hero";
-import WeatherContext from "../../context/WeatherContext";
+import Header from "../../components/common/Header";
+import Hero from "../../components/details/Hero";
 import LocationContext from "../../context/LocationContext";
+import WeatherContext from "../../context/WeatherContext";
+import AirQualityCard from "../../components/details/AirQualityCard";
+import PlaceLocation from "../../components/details/PlaceLocation";
+import HealthTips from "../../components/details/HealthTips";
+import PMCard from "../../components/details/PMCard";
 
-const LocationDetailsScreen = () => {
+const LocationDetailsScreen = (props) => {
+    const { address, weather } = props.route.params;
+
     const [refreshing, setRefreshing] = React.useState(false);
     const { currentLocation } = useContext(LocationContext);
     const { getWeather } = useContext(WeatherContext);
@@ -27,6 +31,7 @@ const LocationDetailsScreen = () => {
     return (
         <>
             <StatusBar barStyle='dark' />
+            <Header />
             <ScrollView
                 showsVerticalScrollIndicator={false}
                 refreshControl={
@@ -35,11 +40,12 @@ const LocationDetailsScreen = () => {
                         onRefresh={onRefresh}
                     />
                 }
-                style={{ backgroundColor: "#F3F3F3" }}>
-                <Hero />
-                {/* <SearchInput />
-                <FavoriteLocations />
-                <CurrentLocation /> */}
+                style={{ backgroundColor: "#F3F3F3", paddingHorizontal: 25 }}>
+                <Hero name={address.city} />
+                <AirQualityCard weather={weather} />
+                <PMCard weather={weather} />
+                <HealthTips weather={weather} />
+                <PlaceLocation currentLocation={currentLocation} />
             </ScrollView>
         </>
     );

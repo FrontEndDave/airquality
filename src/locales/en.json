@@ -1,4 +1,57 @@
 {
-    "welcome": "Welcome",
-    "hello": "Hello"
+    "hello": "Hello,",
+    "title": "Check the air quality in any location you want!",
+    "searchPlaceholder": "Search location",
+    "savedLocations": "Saved locations",
+    "currentLocation": "Current location",
+    "seeMore": "See more",
+    "airQualityTitle": "Air quality",
+    "healthTipsTitle": "Health tips",
+    "healthTips": [
+        {
+            "id": 1,
+            "tips": [
+                { "id": 1, "text": "Regularly ventilate rooms to improve air quality." },
+                { "id": 2, "text": "Engage in outdoor activities while enjoying clean air." },
+                { "id": 3, "text": "Maintain proper hydration by drinking plenty of water." },
+                { "id": 4, "text": "Wearing a mask is not necessary." }
+            ]
+        },
+        {
+            "id": 2,
+            "tips": [
+                { "id": 1, "text": "Regularly ventilate rooms to improve air quality." },
+                { "id": 2, "text": "Engage in outdoor activities while enjoying clean air." },
+                { "id": 3, "text": "Consume meals rich in vitamins and minerals." },
+                { "id": 4, "text": "Wearing a mask is not necessary." }
+            ]
+        },
+        {
+            "id": 3,
+            "tips": [
+                { "id": 1, "text": "Ventilate rooms briefly, preferably in the morning." },
+                { "id": 2, "text": "Limit intense exercise and choose gentler activities like walking or stretching." },
+                { "id": 3, "text": "Drink warm beverages to support your airways." },
+                { "id": 4, "text": "Consider wearing a mask during intense exertion." }
+            ]
+        },
+        {
+            "id": 4,
+            "tips": [
+                { "id": 1, "text": "Close all windows and use an air purifier if possible." },
+                { "id": 2, "text": "Avoid exercising outdoors; the air quality is poor." },
+                { "id": 3, "text": "Boost your immunity through a healthy diet and supplements." },
+                { "id": 4, "text": "If possible, wear a protective mask outdoors." }
+            ]
+        },
+        {
+            "id": 5,
+            "tips": [
+                { "id": 1, "text": "Close all windows and use an air purifier if possible." },
+                { "id": 2, "text": "Avoid exercising outdoors; the air quality is poor." },
+                { "id": 3, "text": "Consult a doctor if you have breathing problems." },
+                { "id": 4, "text": "If possible, wear a protective mask outdoors." }
+            ]
+        }
+    ]
 }

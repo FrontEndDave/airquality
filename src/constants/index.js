@@ -2,6 +2,22 @@ export const API_KEY = "bf40ff6628ec49958e6183921242910";
 
 export const WEATCHER_IMAGES = {};
 
+export const SMOG_BACKGROUND = {
+    1: "https://images.unsplash.com/photo-1565053011557-13ee5743c660?q=80&w=2027&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    2: "https://images.unsplash.com/photo-1536031696538-924fe11c7037?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    3: "https://images.unsplash.com/photo-1611473253612-810bf2a2c3f0?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    4: "https://images.unsplash.com/photo-1522159773307-1976d1531738?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    5: "https://images.unsplash.com/photo-1679674565030-231527d6d773?q=80&w=2058&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+};
+
+export const SMOG_GRADIENT = {
+    1: ["rgba(74,74,74,0.69)", "rgba(255,255,255,0.31)"],
+    2: ["rgba(9,18,28,0.35)", "rgba(155,155,155,0.3)"],
+    3: ["rgba(73,73,73,0.59)", "rgba(222,222,222,0.25)"],
+    4: ["rgba(39,38,38,0.69)", "rgba(173,173,173,0.5)"],
+    5: ["rgba(9,18,28,0.49)", "rgba(175,175,175,0.51)"],
+};
+
 export const WEATHER_BACKGROUNDS = {
     // 1000: Sunny
     1000: {

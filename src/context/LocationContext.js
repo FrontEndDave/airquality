@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
 import * as Location from "expo-location";
+import React, { useEffect, useState } from "react";
 
 const LocationContext = React.createContext();
 

@@ -1,4 +1,57 @@
 {
-    "welcome": "Witamy",
-    "hello": "Cześć"
+    "hello": "Cześć,",
+    "title": "Sprawdź stan powietrza w dowolnym miejscu!",
+    "searchPlaceholder": "Wyszukaj lokalizację",
+    "savedLocations": "Zapisane lokalizacje",
+    "currentLocation": "Aktualna lokalizacja",
+    "seeMore": "Zobacz",
+    "airQualityTitle": "Jakość powietrza",
+    "healthTipsTitle": "Porady zdrowotne",
+    "healthTips": [
+        {
+            "id": 1,
+            "tips": [
+                { "id": 1, "text": "Regularnie wietrz pomieszczenia, aby poprawić jakość powietrza." },
+                { "id": 2, "text": "Korzystaj z aktywności na zewnątrz, ciesząc się zdrowym powietrzem." },
+                { "id": 3, "text": "Utrzymuj odpowiednie nawodnienie organizmu, pijąc dużo wody." },
+                { "id": 4, "text": "Noszenie maski nie jest konieczne." }
+            ]
+        },
+        {
+            "id": 2,
+            "tips": [
+                { "id": 1, "text": "Regularnie wietrz pomieszczenia, aby poprawić jakość powietrza." },
+                { "id": 2, "text": "Korzystaj z aktywności na zewnątrz, ciesząc się zdrowym powietrzem." },
+                { "id": 3, "text": "Spożywaj posiłki bogate w witaminy i minerały." },
+                { "id": 4, "text": "Noszenie maski nie jest konieczne." }
+            ]
+        },
+        {
+            "id": 3,
+            "tips": [
+                { "id": 1, "text": "Wietrz pomieszczenia krócej, najlepiej w godzinach porannych." },
+                { "id": 2, "text": "Ogranicz intensywne ćwiczenia i wybieraj łagodniejsze formy aktywności, takie jak spacery czy stretching." },
+                { "id": 3, "text": "Pij ciepłe napoje, aby wspierać drogi oddechowe." },
+                { "id": 4, "text": "Rozważ noszenie maski przy intensywnym wysiłku." }
+            ]
+        },
+        {
+            "id": 4,
+            "tips": [
+                { "id": 1, "text": "Zamknij wszystkie okna, jeśli to możliwe użyj oczyszczacza powietrza." },
+                { "id": 2, "text": "Unikaj ćwiczeń na zewnątrz, jakość powietrza jest słąba." },
+                { "id": 3, "text": "Wzmacniaj odporność przez zdrową dietę i suplementy." },
+                { "id": 4, "text": "Jeśli to możliwe, noś maskę ochronną na zewnątrz." }
+            ]
+        },
+        {
+            "id": 5,
+            "tips": [
+                { "id": 1, "text": "Zamknij wszystkie okna, jeśli to możliwe użyj oczyszczacza powietrza." },
+                { "id": 2, "text": "Unikaj ćwiczeń na zewnątrz, jakość powietrza jest słąba." },
+                { "id": 3, "text": "Skonsultuj się z lekarzem w przypadku problemów z oddychaniem." },
+                { "id": 4, "text": "Jeśli to możliwe, noś maskę ochronną na zewnątrz." }
+            ]
+        }
+    ]
 }

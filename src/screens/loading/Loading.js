@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Text, View, StyleSheet } from "react-native";
-import Animated, { useSharedValue, useAnimatedStyle, withTiming, Easing, runOnJS } from "react-native-reanimated";
+import { StyleSheet, Text, View } from "react-native";
+import Animated, { Easing, runOnJS, useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated";
 
 import AnimatedLogo from "../../assets/svg/animatedLogo";
 import { APP } from "../../constants";

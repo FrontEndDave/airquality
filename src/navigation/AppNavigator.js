@@ -4,9 +4,9 @@ import React from "react";
 import { APP } from "../constants/index";
 const Stack = createStackNavigator();
 
-import LoadingScreen from "../screens/loading/Loading";
-import HomeScreen from "../screens/home/HomeScreen";
 import LocationDetailsScreen from "../screens/details/LocationDetails";
+import HomeScreen from "../screens/home/HomeScreen";
+import LoadingScreen from "../screens/loading/Loading";
 
 const AppStackNavigator = () => {
     return (
