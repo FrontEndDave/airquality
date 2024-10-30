@@ -1,0 +1,33 @@
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
+import { Image } from "expo-image";
+import { LinearGradient } from "expo-linear-gradient";
+import React, { useCallback } from "react";
+import { ScrollView, StyleSheet, TouchableOpacity, Text, View } from "react-native";
+
+const FavoriteLocations = () => {
+    return (
+        <View style={{ marginTop: 40 }}>
+            <View style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between", paddingBottom: 25, marginHorizontal: 25 }}>
+                <Text style={{ fontFamily: "Medium", fontSize: 20 }}>Zapisane lokalizacje</Text>
+                <TouchableOpacity>
+                    <Text style={{ fontFamily: "medium", fontSize: 18, color: "#BABABA" }}>Zobacz</Text>
+                </TouchableOpacity>
+            </View>
+            <ScrollView
+                horizontal
+                pagingEnabled
+                snapToInterval={156}
+                decelerationRate='fast'
+                scrollEnabled={true}
+                showsHorizontalScrollIndicator={false}
+                style={{ marginLeft: 25 }}>
+                <View style={{ width: 186, backgroundColor: "#E8E8E8", height: 246, borderRadius: 20, marginRight: 20 }}></View>
+                <View style={{ width: 186, backgroundColor: "#E8E8E8", height: 246, borderRadius: 20, marginRight: 20 }}></View>
+                <View style={{ width: 186, backgroundColor: "#E8E8E8", height: 246, borderRadius: 20, marginRight: 20 }}></View>
+                <View style={{ width: 186, backgroundColor: "#E8E8E8", height: 246, borderRadius: 20, marginRight: 25 }}></View>
+            </ScrollView>
+        </View>
+    );
+};
+
+export default FavoriteLocations;
