@@ -26,7 +26,7 @@ const CurrentLocationCard = ({ address, weather }) => {
     const backgroundImage = isDayTime ? WEATHER_BACKGROUNDS[weather.current.condition.code]?.day : WEATHER_BACKGROUNDS[weather.current.condition.code]?.night;
 
     return (
-        <TouchableOpacity onPress={() => navigation.push(APP.DETAILS, { address, weather })}>
+        <TouchableOpacity onPress={() => navigation.push(APP.DETAILS, { address })}>
             <ImageBackground
                 source={{ uri: backgroundImage }}
                 resizeMode='cover'

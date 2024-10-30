@@ -11,7 +11,7 @@ export const WeatherProvider = ({ children }) => {
 
     const getWeather = async (latitude, longitude) => {
         try {
-            const response = await axios.get(`${BASE_URL}?key=${API_KEY}&q=${latitude},${longitude}&days=1&aqi=yes&alerts=no`);
+            const response = await axios.get(`${BASE_URL}?key=${API_KEY}&q=${latitude},${longitude}&days=5&aqi=yes&alerts=no`);
             setWeather(response.data);
         } catch (error) {
             console.error("Błąd podczas pobierania aktualnej pogody:", error);

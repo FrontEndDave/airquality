@@ -4,8 +4,10 @@
     "searchPlaceholder": "Search location",
     "savedLocations": "Saved locations",
     "currentLocation": "Current location",
-    "seeMore": "See more",
+    "seeMore": "View All",
     "airQualityTitle": "Air quality",
+    "aqi": "Air Quality Index",
+    "feelsLikeTemperature": "Feels like",
     "healthTipsTitle": "Health tips",
     "healthTips": [
         {

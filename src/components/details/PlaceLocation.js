@@ -36,7 +36,7 @@ const PlaceLocation = ({ currentLocation }) => {
     };
 
     return (
-        <View style={{ marginTop: 30, display: "flex", justifyContent: "flex-end", alignItems: "flex-end", width: "100%", paddingBottom: 25, position: "relative" }}>
+        <View style={{ marginTop: 30, paddingHorizontal: 25, display: "flex", justifyContent: "flex-end", alignItems: "flex-end", width: "100%", paddingBottom: 25, position: "relative" }}>
             <MapView
                 style={{ width: "100%", height: 160, borderRadius: 25 }}
                 region={region}
@@ -70,7 +70,7 @@ const PlaceLocation = ({ currentLocation }) => {
                     </View>
                 </Marker>
             </MapView>
-            <View style={{ position: "absolute", display: "flex", alignItems: "flex-end", justifyContent: "flex-end", top: 15, right: 15, paddingBottom: 15 }}>
+            <View style={{ position: "absolute", display: "flex", alignItems: "flex-end", justifyContent: "flex-end", top: 15, right: 40, paddingBottom: 15 }}>
                 <View style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", backgroundColor: "#fff", width: 40, height: 90, borderRadius: 10 }}>
                     <TouchableOpacity
                         onPress={handleZoomOut}

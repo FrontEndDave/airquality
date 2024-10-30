@@ -9,6 +9,8 @@ import { LocationProvider } from "./src/context/LocationContext";
 import { WeatherProvider } from "./src/context/WeatherContext";
 
 import "./src/services/i18next";
+import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 export default function App() {
     const [fontsLoaded] = useFonts({
@@ -35,7 +37,11 @@ export default function App() {
         <LocationProvider>
             <WeatherProvider>
                 <NavigationContainer>
-                    <AppStackNavigator />
+                    <GestureHandlerRootView style={{ flex: 1 }}>
+                        <BottomSheetModalProvider>
+                            <AppStackNavigator />
+                        </BottomSheetModalProvider>
+                    </GestureHandlerRootView>
                 </NavigationContainer>
             </WeatherProvider>
         </LocationProvider>

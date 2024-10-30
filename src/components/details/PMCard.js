@@ -1,57 +1,65 @@
-import React from "react";
-import { Text, View, StyleSheet, ImageBackground } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import { SMOG_BACKGROUND, SMOG_GRADIENT } from "../../constants";
-import { useTranslation } from "react-i18next";
+import React, { useContext, useRef, useState } from "react";
+import { Text, View, TouchableOpacity } from "react-native";
+import { ReduceMotion } from "react-native-reanimated";
 
-const PMCard = ({ weather }) => {
-    const { t } = useTranslation();
-    const airQualityIndex = weather.current.air_quality["us-epa-index"];
+import WeatherContext from "../../context/WeatherContext";
+import { BottomSheetModal } from "@gorhom/bottom-sheet";
+
+const PMCard = () => {
+    const bottomSheetModalRef = useRef(null);
+
+    const snapPoints = ["70%"];
+
+    function handleOpenBottomSheet() {
+        console.log("Opening modal:", bottomSheetModalRef.current);
+        bottomSheetModalRef.current.present();
+    }
+
+    const { weather } = useContext(WeatherContext);
     const pm10 = weather.current.air_quality.pm10;
     const pm2_5 = weather.current.air_quality.pm2_5;
 
-    const AQIDotPosition = ((airQualityIndex - 1) / 4) * 100;
-    const PM10DotPosition = ((pm10 - 1) / 100) * 100;
-    const PM25DotPosition = ((pm2_5 - 1) / 100) * 100;
+    const PM10DotPosition = (pm10 / 200) * 100;
+    const PM25DotPosition = (pm2_5 / 100) * 100;
 
     return (
-        <View style={{ flexDirection: "row", justifyContent: "space-between", marginTop: 15, gap: 15 }}>
-            <View style={{ flex: 1, backgroundColor: "#E8E8E8", borderRadius: 20, padding: 15 }}>
-                <View style={{ paddingBottom: 15 }}>
-                    <Text style={{ fontFamily: "Regular", fontSize: 26, color: "#75879b" }}>
-                        PM
-                        <Text style={{ fontFamily: "Medium", fontSize: 15, color: "#75879b" }}>10</Text>
-                    </Text>
-                    <Text style={{ fontFamily: "SemiBold", fontSize: 38, color: "#4d4d4d" }}>{pm10.toFixed(1)}</Text>
-                </View>
-                <View style={{ width: "100%", height: 12 }}>
-                    <LinearGradient
-                        colors={["#8cff66", "#ffff33", "#ffa31a", "#ff3333", "#660000"]}
-                        start={{ x: 0, y: 0 }}
-                        end={{ x: 1, y: 0 }}
-                        style={{ flex: 1, borderRadius: 10 }}>
-                        <View style={{ left: `${PM10DotPosition}%`, position: "absolute", top: "50%", borderWidth: 1, borderColor: "gray", width: 12, height: 12, transform: [{ translateY: -6 }], borderRadius: 10, backgroundColor: "#fff" }} />
-                    </LinearGradient>
-                </View>
+        <View style={{ paddingHorizontal: 25, width: "100%" }}>
+            <View style={{ flexDirection: "row", justifyContent: "space-between", marginTop: 15, gap: 15 }}>
+                <TouchableOpacity
+                    onPress={handleOpenBottomSheet}
+                    style={{ flex: 1 }}>
+                    <View style={{ backgroundColor: "#E8E8E8", borderRadius: 20, padding: 15 }}>
+                        <View style={{}}>
+                            <Text style={{ fontFamily: "Regular", fontSize: 20, color: "#75879b" }}>
+                                PM
+                                <Text style={{ fontFamily: "Medium", fontSize: 15, color: "#75879b" }}>10</Text>
+                            </Text>
+                            <Text style={{ fontFamily: "SemiBold", fontSize: 32, color: "#4d4d4d" }}>{pm10.toFixed(1)}</Text>
+                        </View>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity style={{ flex: 1 }}>
+                    <View style={{ backgroundColor: "#E8E8E8", borderRadius: 20, padding: 15 }}>
+                        <View style={{}}>
+                            <Text style={{ fontFamily: "Regular", fontSize: 20, color: "#75879b" }}>
+                                PM
+                                <Text style={{ fontFamily: "Medium", fontSize: 15, color: "#75879b" }}>2.5</Text>
+                            </Text>
+                            <Text style={{ fontFamily: "SemiBold", fontSize: 32, color: "#4d4d4d" }}>{pm2_5.toFixed(1)}</Text>
+                        </View>
+                    </View>
+                </TouchableOpacity>
             </View>
-            <View style={{ flex: 1, backgroundColor: "#E8E8E8", borderRadius: 20, padding: 15 }}>
-                <View style={{ paddingBottom: 15 }}>
-                    <Text style={{ fontFamily: "Regular", fontSize: 26, color: "#75879b" }}>
-                        PM
-                        <Text style={{ fontFamily: "Medium", fontSize: 15, color: "#75879b" }}>2.5</Text>
-                    </Text>
-                    <Text style={{ fontFamily: "SemiBold", fontSize: 38, color: "#4d4d4d" }}>{pm2_5.toFixed(1)}</Text>
+            <BottomSheetModal
+                animationConfigs={{ reduceMotion: ReduceMotion.Never }}
+                ref={bottomSheetModalRef}
+                index={0}
+                snapPoints={snapPoints}>
+                <View style={{ padding: 20, backgroundColor: "rgba(0, 0, 0, 0.85)", height: "100%" }}>
+                    <Text style={{ color: "#fff" }}>Bottom Sheet Content</Text>
                 </View>
-                <View style={{ width: "100%", height: 12 }}>
-                    <LinearGradient
-                        colors={["#8cff66", "#ffff33", "#ffa31a", "#ff3333", "#660000"]}
-                        start={{ x: 0, y: 0 }}
-                        end={{ x: 1, y: 0 }}
-                        style={{ flex: 1, borderRadius: 10 }}>
-                        <View style={{ left: `${PM25DotPosition}%`, position: "absolute", top: "50%", borderWidth: 1, borderColor: "gray", width: 12, height: 12, transform: [{ translateY: -6 }], borderRadius: 10, backgroundColor: "#fff" }} />
-                    </LinearGradient>
-                </View>
-            </View>
+            </BottomSheetModal>
         </View>
     );
 };

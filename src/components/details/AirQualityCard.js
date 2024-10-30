@@ -1,24 +1,21 @@
-import React from "react";
-import { Text, View, StyleSheet, ImageBackground } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import { SMOG_BACKGROUND, SMOG_GRADIENT } from "../../constants";
+import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
-import PMCard from "./PMCard";
+import { ImageBackground, Text, View } from "react-native";
 
-const AirQualityCard = ({ weather }) => {
+import WeatherContext from "../../context/WeatherContext";
+
+import { SMOG_BACKGROUND, SMOG_GRADIENT } from "../../constants";
+
+const AirQualityCard = () => {
+    const { weather } = useContext(WeatherContext);
     const { t } = useTranslation();
     const airQualityIndex = weather.current.air_quality["us-epa-index"];
-    const pm10 = weather.current.air_quality.pm10;
-    const pm2_5 = weather.current.air_quality.pm2_5;
 
     const AQIDotPosition = ((airQualityIndex - 1) / 4) * 100;
-    const PM10DotPosition = ((pm10 - 1) / 100) * 100;
-    const PM25DotPosition = ((pm2_5 - 1) / 100) * 100;
-
-    // console.log(AQIDotPosition, PM10DotPosition, PM25DotPosition);
 
     return (
-        <View style={{ width: "100%" }}>
+        <View style={{ width: "100%", paddingHorizontal: 25 }}>
             <Text style={{ fontFamily: "Medium", fontSize: 20, marginTop: 30 }}>{t("airQualityTitle")}</Text>
             <ImageBackground
                 source={{ uri: SMOG_BACKGROUND[airQualityIndex] }}
@@ -42,7 +39,6 @@ const AirQualityCard = ({ weather }) => {
                     </View>
                 </LinearGradient>
             </ImageBackground>
-            {/* <PMCard weather={weather} /> */}
         </View>
     );
 };

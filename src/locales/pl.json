@@ -6,6 +6,8 @@
     "currentLocation": "Aktualna lokalizacja",
     "seeMore": "Zobacz",
     "airQualityTitle": "Jakość powietrza",
+    "aqi": "Jakość Powietrza",
+    "feelsLikeTemperature": "Odczuwalna temperatura",
     "healthTipsTitle": "Porady zdrowotne",
     "healthTips": [
         {
