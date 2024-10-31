@@ -4,6 +4,7 @@
         "slug": "airquality",
         "version": "1.0.0",
         "orientation": "portrait",
+        "platforms": ["ios"],
         "icon": "./assets/icon.png",
         "userInterfaceStyle": "light",
         "splash": {
@@ -12,12 +13,12 @@
             "backgroundColor": "#ffffff"
         },
         "ios": {
-            "supportsTablet": true
-        },
-        "android": {
-            "adaptiveIcon": {
-                "foregroundImage": "./assets/adaptive-icon.png",
-                "backgroundColor": "#ffffff"
+            "supportsTablet": true,
+            "infoPlist": {
+                "NSLocationWhenInUseUsageDescription": "Potrzebujemy dostępu do lokalizacji, aby monitorować jakość powietrza.",
+                "NSLocationAlwaysUsageDescription": "Potrzebujemy dostępu do lokalizacji w tle, aby monitorować jakość powietrza.",
+                "UIBackgroundModes": ["location"],
+                "NSUserNotificationUsageDescription": "Aplikacja potrzebuje dostępu do powiadomień."
             }
         },
         "web": {
@@ -28,7 +29,7 @@
                 "projectId": "c8fba532-8a6c-4679-bf5b-4c7d9f20b057"
             }
         },
-        "owner": "ciemnykoksu",
+        "owner": "Dawid Piela",
         "runtimeVersion": {
             "policy": "appVersion"
         },

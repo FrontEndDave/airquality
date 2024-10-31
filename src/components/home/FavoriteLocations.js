@@ -7,13 +7,14 @@ const FavoriteLocations = () => {
 
     return (
         <View style={{ marginTop: 40 }}>
-            <View style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between", paddingBottom: 25 }}>
+            <View style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between", paddingBottom: 25, paddingHorizontal: 25 }}>
                 <Text style={{ fontFamily: "Medium", fontSize: 20 }}>{t("savedLocations")}</Text>
                 <TouchableOpacity>
                     <Text style={{ fontFamily: "medium", fontSize: 18, color: "#BABABA" }}>{t("seeMore")}</Text>
                 </TouchableOpacity>
             </View>
             <ScrollView
+                style={{ marginLeft: 25 }}
                 horizontal
                 pagingEnabled
                 snapToInterval={156}
@@ -23,7 +24,7 @@ const FavoriteLocations = () => {
                 <View style={{ width: 186, backgroundColor: "#E8E8E8", height: 246, borderRadius: 20, marginRight: 20 }}></View>
                 <View style={{ width: 186, backgroundColor: "#E8E8E8", height: 246, borderRadius: 20, marginRight: 20 }}></View>
                 <View style={{ width: 186, backgroundColor: "#E8E8E8", height: 246, borderRadius: 20, marginRight: 20 }}></View>
-                <View style={{ width: 186, backgroundColor: "#E8E8E8", height: 246, borderRadius: 20 }}></View>
+                <View style={{ width: 186, backgroundColor: "#E8E8E8", height: 246, borderRadius: 20, marginRight: 25 }}></View>
             </ScrollView>
         </View>
     );

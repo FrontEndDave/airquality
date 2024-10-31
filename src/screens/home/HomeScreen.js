@@ -37,7 +37,7 @@ const HomeScreen = () => {
                         onRefresh={onRefresh}
                     />
                 }
-                style={{ backgroundColor: "#F3F3F3", paddingHorizontal: 25 }}>
+                style={{ backgroundColor: "#F3F3F3" }}>
                 <Hero />
                 <SearchInput />
                 <FavoriteLocations />

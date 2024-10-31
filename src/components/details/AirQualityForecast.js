@@ -12,7 +12,7 @@ const AirQualityForecast = () => {
 
     const currentHour = new Date().getHours();
     const hoursLeftInDay = 24 - currentHour;
-    const hoursToDisplay = Math.min(hoursLeftInDay, 4);
+    const hoursToDisplay = Math.min(hoursLeftInDay, 24);
 
     const todayForecast = weather.forecast.forecastday[0].hour;
     const nextDaysForecast = weather.forecast.forecastday.slice(1);
@@ -35,7 +35,7 @@ const AirQualityForecast = () => {
                         style={{ width: 170, padding: 10, backgroundColor: "#E8E8E8", borderRadius: 10, marginRight: 10 }}>
                         <Text style={{ fontFamily: "SemiBold", fontSize: 22, color: "#75879b" }}>{hourData.time.split(" ")[1]}</Text>
                         <Text style={{ fontFamily: "Regular", color: "#4d4d4d", fontSize: 15 }}>
-                            {t("aqi")}: <Text style={{ fontFamily: "Bold", fontSize: 16 }}>{hourData.air_quality["us-epa-index"]}</Text>
+                            {t("aqiShortcut")}: <Text style={{ fontFamily: "Bold", fontSize: 16 }}>{hourData.air_quality["us-epa-index"]}</Text>
                         </Text>
                     </View>
                 ))}
@@ -53,7 +53,7 @@ const AirQualityForecast = () => {
                             }}>
                             <Text style={{ fontFamily: "SemiBold", fontSize: 22, color: "#75879b" }}>{day.date}</Text>
                             <Text style={{ fontFamily: "Regular", color: "#4d4d4d", fontSize: 15 }}>
-                                {t("aqi")}: <Text style={{ fontFamily: "Bold", fontSize: 16 }}>{day.day.air_quality["us-epa-index"]}</Text>
+                                {t("aqiShortcut")}: <Text style={{ fontFamily: "Bold", fontSize: 16 }}>{day.day.air_quality["us-epa-index"]}</Text>
                             </Text>
                         </View>
                     ) : null

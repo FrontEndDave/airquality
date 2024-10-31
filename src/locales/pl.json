@@ -6,7 +6,7 @@
     "currentLocation": "Aktualna lokalizacja",
     "seeMore": "Zobacz",
     "airQualityTitle": "Jakość powietrza",
-    "aqi": "Jakość Powietrza",
+    "aqiShortcut": "Jakość Powietrza",
     "feelsLikeTemperature": "Odczuwalna temperatura",
     "healthTipsTitle": "Porady zdrowotne",
     "healthTips": [
@@ -55,5 +55,39 @@
                 { "id": 4, "text": "Jeśli to możliwe, noś maskę ochronną na zewnątrz." }
             ]
         }
-    ]
+    ],
+    "aqi": {
+        "title": "Indeks Jakości Powietrza",
+        "description": "Indeks jakości powietrza (AQI) to wskaźnik, który mierzy zanieczyszczenie powietrza, oceniając jego wpływ na zdrowie ludzi w oparciu o stężenia szkodliwych substancji, takich jak PM2.5, PM10, dwutlenek azotu (NO2) czy ozon (O3). Wartości AQI są prezentowane w formie skali, która informuje o poziomie zagrożenia, co pozwala użytkownikom na podejmowanie świadomych decyzji dotyczących aktywności na świeżym powietrzu.",
+        "alternative": "Kategorie jakości powietrza",
+        "good": "Dobra",
+        "moderate": "Umiarkowana",
+        "sensitive": "Dla wrażliwych",
+        "unhealthy": "Niezdrowa",
+        "veryUnhealthy": "Bardzo niezdrowa"
+    },
+    "pm10": {
+        "title": "Pył zawieszony PM10",
+        "description": "PM10 to cząstki o średnicy poniżej 10 mikrometrów, które mogą osadzać się w górnych drogach oddechowych i oskrzelach, powodując kaszel, duszność i trudności z oddychaniem, zwłaszcza podczas wysiłku. Zwiększają ryzyko infekcji dróg oddechowych oraz mogą zaostrzać objawy alergii, takich jak astma czy zapalenie spojówek."
+    },
+    "pm2_5": {
+        "title": "Pył zawieszony PM 2.5",
+        "description": "Pyły drobne PM2.5, o średnicy poniżej 2,5 mikrometra, mogą przenikać do dolnych dróg oddechowych i krwiobiegu, co przy dłuższej ekspozycji zwiększa ryzyko chorób serca, takich jak nadciśnienie i zawał, a także raka płuc. Pyły te, podobnie jak PM10, mogą powodować kaszel, duszność oraz trudności z oddychaniem, zwłaszcza podczas wysiłku fizycznego."
+    },
+    "no2": {
+        "title": "Dwutlenek azotu (NO2)",
+        "description": "NO2 to gaz powstający głównie podczas spalania paliw, a jego obecność w powietrzu może prowadzić do podrażnienia dróg oddechowych. Długotrwała ekspozycja na ten związek może powodować przewlekłe choroby układu oddechowego, a także zwiększać ryzyko infekcji płuc. NO2 może także zaostrzać objawy astmy oraz negatywnie wpływać na rozwój dzieci."
+    },
+    "o3": {
+        "title": "Ozon (O3)",
+        "description": "Ozon to gaz, który w górnych warstwach atmosfery chroni nas przed promieniowaniem UV, ale na poziomie gruntu może być szkodliwy. Wdychanie ozonu może prowadzić do podrażnienia dróg oddechowych, kaszlu oraz trudności w oddychaniu, zwłaszcza u osób z chorobami układu oddechowego. Wysokie stężenia ozonu mogą również obniżać wydolność płuc i wpływać na zdrowie serca."
+    },
+    "so2": {
+        "title": "Dwutlenek siarki (SO2)",
+        "description": "SO2 to gaz emitowany podczas spalania paliw kopalnych oraz w procesach przemysłowych. Może powodować podrażnienia dróg oddechowych, kaszel, a także zaostrzać objawy astmy i przewlekłej obturacyjnej choroby płuc. Długotrwała ekspozycja na SO2 może prowadzić do rozwoju chorób płuc oraz zwiększać ryzyko wystąpienia chorób serca."
+    },
+    "co": {
+        "title": "Tlenek węgla (CO)",
+        "description": "Tlenek węgla to bezbarwny i bezwonny gaz, który powstaje w wyniku niepełnego spalania paliw. Jest niebezpieczny, ponieważ może łączyć się z hemoglobiną w krwi, co prowadzi do niedotlenienia organizmu. Objawy zatrucia tlenkiem węgla mogą obejmować bóle głowy, zawroty głowy, osłabienie, a w skrajnych przypadkach mogą być śmiertelne. Osoby z chorobami serca oraz układu oddechowego są szczególnie narażone na negatywne skutki działania CO."
+    }
 }

@@ -8,7 +8,7 @@ const Hero = () => {
     const { t } = useTranslation();
 
     return (
-        <View>
+        <View style={{ width: "100%", paddingHorizontal: 25 }}>
             <View style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
                 <View style={{ display: "flex", flexDirection: "row", alignItems: "center", gap: 12 }}>
                     <View style={{ width: 48, height: 48, borderRadius: 200, backgroundColor: "#2AB8A0", display: "flex", justifyContent: "center", alignItems: "center" }}>

@@ -22,11 +22,15 @@ const CurrentLocationCard = ({ address, weather }) => {
         };
     }, []);
 
+    const handlePress = () => {
+        navigation.navigate(APP.DETAILS, { address });
+    };
+
     const isDayTime = weather.current.is_day === 1;
     const backgroundImage = isDayTime ? WEATHER_BACKGROUNDS[weather.current.condition.code]?.day : WEATHER_BACKGROUNDS[weather.current.condition.code]?.night;
 
     return (
-        <TouchableOpacity onPress={() => navigation.push(APP.DETAILS, { address })}>
+        <TouchableOpacity onPress={handlePress}>
             <ImageBackground
                 source={{ uri: backgroundImage }}
                 resizeMode='cover'

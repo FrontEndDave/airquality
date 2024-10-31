@@ -263,6 +263,8 @@ export const WEATHER_BACKGROUNDS = {
 
 export const APP = {
     LOADING: "LoadingScreen",
+    MAIN: "MainScreen",
     HOME: "HomeScreen",
     DETAILS: "PlaceDetailsScreen",
+    SETTINGS: "SettingsScreen",
 };

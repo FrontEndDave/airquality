@@ -11,6 +11,7 @@ import { WeatherProvider } from "./src/context/WeatherContext";
 import "./src/services/i18next";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { requestLocationPermissions, startBackgroundAQIUpdates } from "./src/services/Location";
 
 export default function App() {
     const [fontsLoaded] = useFonts({
@@ -31,6 +32,16 @@ export default function App() {
                 return;
             }
         })();
+
+        const initializeLocationServices = async () => {
+            const granted = await requestLocationPermissions();
+            if (granted) {
+                await startBackgroundAQIUpdates();
+            } else {
+            }
+        };
+
+        initializeLocationServices();
     }, []);
 
     return (

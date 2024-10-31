@@ -1,12 +1,14 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
 
-import { APP } from "../constants/index";
 const Stack = createStackNavigator();
 
-import LocationDetailsScreen from "../screens/details/LocationDetails";
-import HomeScreen from "../screens/home/HomeScreen";
 import LoadingScreen from "../screens/loading/Loading";
+import LocationDetailsScreen from "../screens/details/LocationDetails";
+
+import { APP } from "../constants/index";
+import SettingsScreen from "../screens/settings/SettingsScreen";
+import HomeScreen from "../screens/home/HomeScreen";
 
 const AppStackNavigator = () => {
     return (
@@ -31,6 +33,11 @@ const AppStackNavigator = () => {
             <Stack.Screen
                 name={APP.DETAILS}
                 component={LocationDetailsScreen}
+                options={{ headerShown: false, navigationBarColor: "transparent", animationEnabled: true }}
+            />
+            <Stack.Screen
+                name={APP.SETTINGS}
+                component={SettingsScreen}
                 options={{ headerShown: false, navigationBarColor: "transparent", animationEnabled: true }}
             />
         </Stack.Navigator>

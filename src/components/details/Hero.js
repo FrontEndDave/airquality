@@ -27,7 +27,7 @@ const Hero = ({ name }) => {
                 <View style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
                     <Text style={{ fontFamily: "SemiBold", fontSize: 24 }}>{name}</Text>
                     <Text style={{ fontFamily: "Regular", fontSize: 18, color: "#4d4d4d" }}>
-                        {currentTemprature}° | Temperatura odczuwalna: {feelLikeTemprature}°
+                        {currentTemprature.toFixed(0)}° | Temperatura odczuwalna: {feelLikeTemprature.toFixed(0)}°
                     </Text>
                 </View>
             </View>

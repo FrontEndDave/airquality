@@ -1,66 +1,57 @@
-import { LinearGradient } from "expo-linear-gradient";
-import React, { useContext, useRef, useState } from "react";
-import { Text, View, TouchableOpacity } from "react-native";
-import { ReduceMotion } from "react-native-reanimated";
-
+import { BottomSheetModal, BottomSheetView } from "@gorhom/bottom-sheet";
+import { t } from "i18next";
+import React, { useContext, useRef } from "react";
+import { Text, TouchableOpacity, View } from "react-native";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import WeatherContext from "../../context/WeatherContext";
-import { BottomSheetModal } from "@gorhom/bottom-sheet";
 
 const PMCard = () => {
-    const bottomSheetModalRef = useRef(null);
-
-    const snapPoints = ["70%"];
-
-    function handleOpenBottomSheet() {
-        console.log("Opening modal:", bottomSheetModalRef.current);
-        bottomSheetModalRef.current.present();
-    }
-
     const { weather } = useContext(WeatherContext);
-    const pm10 = weather.current.air_quality.pm10;
-    const pm2_5 = weather.current.air_quality.pm2_5;
 
-    const PM10DotPosition = (pm10 / 200) * 100;
-    const PM25DotPosition = (pm2_5 / 100) * 100;
+    const PM10ModalRef = useRef(null);
+    const PM2_5ModalRef = useRef(null);
+
+    const snapPoints = ["55%", "65%"];
+    const airQualityData = [
+        { label: "PM10", value: weather.current.air_quality.pm10, modalRef: PM10ModalRef },
+        { label: "PM2.5", value: weather.current.air_quality.pm2_5, modalRef: PM2_5ModalRef },
+    ];
+
+    const openModal = (modalRef) => modalRef.current?.present();
+
+    const renderBottomSheet = (ref, title, description) => (
+        <BottomSheetModal
+            backgroundStyle={{ backgroundColor: "rgb(245, 247, 249)", borderRadius: 30 }}
+            ref={ref}
+            index={0}
+            snapPoints={snapPoints}>
+            <BottomSheetView style={{ flex: 1, paddingHorizontal: 36, paddingTop: 20, alignItems: "flex-start" }}>
+                <Text style={{ fontFamily: "SemiBold", fontSize: 24, color: "#4d4d4d", paddingBottom: 10 }}>{t(title)}</Text>
+                <Text style={{ fontFamily: "Regular", fontSize: 18, color: "#75879b" }}>{t(description)}</Text>
+            </BottomSheetView>
+        </BottomSheetModal>
+    );
 
     return (
-        <View style={{ paddingHorizontal: 25, width: "100%" }}>
-            <View style={{ flexDirection: "row", justifyContent: "space-between", marginTop: 15, gap: 15 }}>
-                <TouchableOpacity
-                    onPress={handleOpenBottomSheet}
-                    style={{ flex: 1 }}>
-                    <View style={{ backgroundColor: "#E8E8E8", borderRadius: 20, padding: 15 }}>
-                        <View style={{}}>
+        <GestureHandlerRootView style={{ flex: 1 }}>
+            <View style={{ paddingHorizontal: 25, width: "100%", marginTop: 15, flexDirection: "row", gap: 15 }}>
+                {airQualityData.map(({ label, value, modalRef }) => (
+                    <TouchableOpacity
+                        key={label}
+                        style={{ flex: 1 }}
+                        onPress={() => openModal(modalRef)}>
+                        <View style={{ backgroundColor: "#E8E8E8", borderRadius: 20, padding: 15 }}>
                             <Text style={{ fontFamily: "Regular", fontSize: 20, color: "#75879b" }}>
-                                PM
-                                <Text style={{ fontFamily: "Medium", fontSize: 15, color: "#75879b" }}>10</Text>
+                                PM<Text style={{ fontFamily: "Medium", fontSize: 15 }}>{label.slice(2)}</Text>
                             </Text>
-                            <Text style={{ fontFamily: "SemiBold", fontSize: 32, color: "#4d4d4d" }}>{pm10.toFixed(1)}</Text>
+                            <Text style={{ fontFamily: "SemiBold", fontSize: 32, color: "#4d4d4d" }}>{value.toFixed(1)}</Text>
                         </View>
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity style={{ flex: 1 }}>
-                    <View style={{ backgroundColor: "#E8E8E8", borderRadius: 20, padding: 15 }}>
-                        <View style={{}}>
-                            <Text style={{ fontFamily: "Regular", fontSize: 20, color: "#75879b" }}>
-                                PM
-                                <Text style={{ fontFamily: "Medium", fontSize: 15, color: "#75879b" }}>2.5</Text>
-                            </Text>
-                            <Text style={{ fontFamily: "SemiBold", fontSize: 32, color: "#4d4d4d" }}>{pm2_5.toFixed(1)}</Text>
-                        </View>
-                    </View>
-                </TouchableOpacity>
+                    </TouchableOpacity>
+                ))}
+                {renderBottomSheet(PM10ModalRef, "pm10.title", "pm10.description")}
+                {renderBottomSheet(PM2_5ModalRef, "pm2_5.title", "pm2_5.description")}
             </View>
-            <BottomSheetModal
-                animationConfigs={{ reduceMotion: ReduceMotion.Never }}
-                ref={bottomSheetModalRef}
-                index={0}
-                snapPoints={snapPoints}>
-                <View style={{ padding: 20, backgroundColor: "rgba(0, 0, 0, 0.85)", height: "100%" }}>
-                    <Text style={{ color: "#fff" }}>Bottom Sheet Content</Text>
-                </View>
-            </BottomSheetModal>
-        </View>
+        </GestureHandlerRootView>
     );
 };
 
