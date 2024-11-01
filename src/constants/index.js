@@ -267,4 +267,6 @@ export const APP = {
     HOME: "HomeScreen",
     DETAILS: "PlaceDetailsScreen",
     SETTINGS: "SettingsScreen",
+    AR: "ARScreen",
+    SEARCH: "SearchScreen",
 };

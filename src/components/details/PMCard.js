@@ -44,7 +44,10 @@ const PMCard = () => {
                             <Text style={{ fontFamily: "Regular", fontSize: 20, color: "#75879b" }}>
                                 PM<Text style={{ fontFamily: "Medium", fontSize: 15 }}>{label.slice(2)}</Text>
                             </Text>
-                            <Text style={{ fontFamily: "SemiBold", fontSize: 32, color: "#4d4d4d" }}>{value.toFixed(1)}</Text>
+                            <Text style={{ fontFamily: "SemiBold", fontSize: 26, color: "#4d4d4d" }}>
+                                {value.toFixed(1)}
+                                <Text style={{ fontSize: 15 }}>µg/m³</Text>
+                            </Text>
                         </View>
                     </TouchableOpacity>
                 ))}

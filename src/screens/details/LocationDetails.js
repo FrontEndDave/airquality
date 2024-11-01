@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { RefreshControl, ScrollView, View } from "react-native";
 
 import Header from "../../components/common/Header";
@@ -14,16 +14,29 @@ import PollutantCard from "../../components/details/PollutantCard";
 import AirQualityForecast from "../../components/details/AirQualityForecast";
 
 const LocationDetailsScreen = (props) => {
-    const { address } = props.route.params;
+    const { address, coordinates } = props.route.params;
+
+    console.log(address);
+
     const [refreshing, setRefreshing] = React.useState(false);
     const { currentLocation } = useContext(LocationContext);
     const { getWeather } = useContext(WeatherContext);
+
+    useEffect(() => {
+        if (coordinates) {
+            getWeather(coordinates.latitude, coordinates.longitude);
+        } else if (currentLocation) {
+            getWeather(currentLocation.latitude, currentLocation.longitude);
+        }
+    }, []);
 
     const onRefresh = React.useCallback(() => {
         setRefreshing(true);
         setTimeout(() => {
             setRefreshing(false);
-            if (currentLocation) {
+            if (coordinates) {
+                getWeather(coordinates.latitude, coordinates.longitude);
+            } else if (currentLocation) {
                 getWeather(currentLocation.latitude, currentLocation.longitude);
             }
         }, 2000);
@@ -32,7 +45,10 @@ const LocationDetailsScreen = (props) => {
     return (
         <>
             <StatusBar barStyle='dark' />
-            <Hero name={address.city} />
+            <Hero
+                name={props.route.params.address ? props.route.params.address : props.route.params.place}
+                saveIcon={props.route.params.address ? true : false}
+            />
             <ScrollView
                 showsVerticalScrollIndicator={false}
                 refreshControl={
@@ -47,7 +63,10 @@ const LocationDetailsScreen = (props) => {
                 <PollutantCard />
                 <HealthTips />
                 <AirQualityForecast />
-                <PlaceLocation currentLocation={currentLocation} />
+                <PlaceLocation
+                    currentLocation={currentLocation}
+                    coordinates={coordinates}
+                />
             </ScrollView>
         </>
     );

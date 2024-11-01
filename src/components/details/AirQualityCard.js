@@ -62,23 +62,23 @@ const AirQualityCard = () => {
                         <View style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                             <View style={{ display: "flex", flexDirection: "row", alignItems: "center", gap: 10 }}>
                                 <View style={{ backgroundColor: "#00b300", width: 55, height: 20 }} />
-                                <Text style={{ fontFamily: "SemiBold", fontSize: 21, color: "#4d4d4d" }}>{t("aqi.good")}</Text>
+                                <Text style={{ fontFamily: "Medium", fontSize: 21, color: "#4d4d4d" }}>{t("aqi.good")}</Text>
                             </View>
                             <View style={{ display: "flex", flexDirection: "row", alignItems: "center", gap: 10 }}>
                                 <View style={{ backgroundColor: "#ffff33", width: 55, height: 20 }} />
-                                <Text style={{ fontFamily: "SemiBold", fontSize: 21, color: "#4d4d4d" }}>{t("aqi.moderate")}</Text>
+                                <Text style={{ fontFamily: "Medium", fontSize: 21, color: "#4d4d4d" }}>{t("aqi.moderate")}</Text>
                             </View>
                             <View style={{ display: "flex", flexDirection: "row", alignItems: "center", gap: 10 }}>
                                 <View style={{ backgroundColor: "#ffa31a", width: 55, height: 20 }} />
-                                <Text style={{ fontFamily: "SemiBold", fontSize: 21, color: "#4d4d4d" }}>{t("aqi.sensitive")}</Text>
+                                <Text style={{ fontFamily: "Medium", fontSize: 21, color: "#4d4d4d" }}>{t("aqi.sensitive")}</Text>
                             </View>
                             <View style={{ display: "flex", flexDirection: "row", alignItems: "center", gap: 10 }}>
                                 <View style={{ backgroundColor: "#ff3333", width: 55, height: 20 }} />
-                                <Text style={{ fontFamily: "SemiBold", fontSize: 21, color: "#4d4d4d" }}>{t("aqi.unhealthy")}</Text>
+                                <Text style={{ fontFamily: "Medium", fontSize: 21, color: "#4d4d4d" }}>{t("aqi.unhealthy")}</Text>
                             </View>
                             <View style={{ display: "flex", flexDirection: "row", alignItems: "center", gap: 10 }}>
                                 <View style={{ backgroundColor: "#660000", width: 55, height: 20 }} />
-                                <Text style={{ fontFamily: "SemiBold", fontSize: 21, color: "#4d4d4d" }}>{t("aqi.veryUnhealthy")}</Text>
+                                <Text style={{ fontFamily: "Medium", fontSize: 21, color: "#4d4d4d" }}>{t("aqi.veryUnhealthy")}</Text>
                             </View>
                         </View>
                     </BottomSheetView>

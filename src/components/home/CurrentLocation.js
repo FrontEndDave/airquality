@@ -12,7 +12,7 @@ const CurrentLocation = () => {
     const { weather } = useContext(WeatherContext);
 
     return (
-        <View style={{ marginTop: 40, paddingBottom: 50, paddingHorizontal: 25 }}>
+        <View style={{ marginTop: 40, paddingHorizontal: 25, paddingBottom: 50 }}>
             <View style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between", paddingBottom: 15 }}>
                 <Text style={{ fontFamily: "Medium", fontSize: 20 }}>{t("currentLocation")}</Text>
             </View>

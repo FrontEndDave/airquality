@@ -54,7 +54,10 @@ const PollutantCard = () => {
                                         {label}
                                         <Text style={{ fontFamily: "Medium", fontSize: 15, color: "#75879b" }}>{bottomIndex ? bottomIndex : null}</Text>
                                     </Text>
-                                    <Text style={{ fontFamily: "SemiBold", fontSize: 32, color: "#4d4d4d" }}>{value.toFixed(1)}</Text>
+                                    <Text style={{ fontFamily: "SemiBold", fontSize: 26, color: "#4d4d4d" }}>
+                                        {value.toFixed(1)}
+                                        <Text style={{ fontSize: 15 }}>µg/m³</Text>
+                                    </Text>
                                 </View>
                             </TouchableOpacity>
                         </View>
@@ -72,7 +75,10 @@ const PollutantCard = () => {
                                             {label}
                                             <Text style={{ fontFamily: "Medium", fontSize: 15, color: "#75879b" }}>{bottomIndex ? bottomIndex : null}</Text>
                                         </Text>
-                                        <Text style={{ fontFamily: "SemiBold", fontSize: 32, color: "#4d4d4d" }}>{value.toFixed(1)}</Text>
+                                        <Text style={{ fontFamily: "SemiBold", fontSize: 26, color: "#4d4d4d" }}>
+                                            {value.toFixed(1)}
+                                            <Text style={{ fontSize: 15 }}>µg/m³</Text>
+                                        </Text>
                                     </View>
                                 </View>
                             </TouchableOpacity>

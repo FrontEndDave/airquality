@@ -1,19 +1,20 @@
+import { Poppins_200ExtraLight, Poppins_300Light, Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold, Poppins_700Bold, Poppins_800ExtraBold, Poppins_900Black, useFonts } from "@expo-google-fonts/poppins";
 import { NavigationContainer } from "@react-navigation/native";
-import React, { useEffect } from "react";
 import * as Location from "expo-location";
-import { useFonts, Poppins_200ExtraLight, Poppins_300Light, Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold, Poppins_700Bold, Poppins_800ExtraBold, Poppins_900Black } from "@expo-google-fonts/poppins";
+import * as Notifications from "expo-notifications";
+import React, { useEffect } from "react";
 
 import AppStackNavigator from "./src/navigation/AppNavigator";
 
-import { LocationProvider } from "./src/context/LocationContext";
+import LocationContext, { LocationProvider } from "./src/context/LocationContext";
 import { WeatherProvider } from "./src/context/WeatherContext";
 
-import "./src/services/i18next";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import { requestLocationPermissions, startBackgroundAQIUpdates } from "./src/services/Location";
+import { registerBackgroundFetchAsync } from "./src/services/backgroundFetch";
+import "./src/services/i18next";
 
-export default function App() {
+function App() {
     const [fontsLoaded] = useFonts({
         ExtraLight: Poppins_200ExtraLight,
         Light: Poppins_300Light,
@@ -32,16 +33,15 @@ export default function App() {
                 return;
             }
         })();
-
-        const initializeLocationServices = async () => {
-            const granted = await requestLocationPermissions();
-            if (granted) {
-                await startBackgroundAQIUpdates();
-            } else {
+        (async () => {
+            let { status } = await Notifications.getPermissionsAsync();
+            if (status !== "granted") {
+                const { status: newStatus } = await Notifications.requestPermissionsAsync();
+                if (newStatus !== "granted") {
+                    return;
+                }
             }
-        };
-
-        initializeLocationServices();
+        })();
     }, []);
 
     return (
@@ -50,6 +50,7 @@ export default function App() {
                 <NavigationContainer>
                     <GestureHandlerRootView style={{ flex: 1 }}>
                         <BottomSheetModalProvider>
+                            <BackgroundFetchComponent />
                             <AppStackNavigator />
                         </BottomSheetModalProvider>
                     </GestureHandlerRootView>
@@ -58,3 +59,22 @@ export default function App() {
         </LocationProvider>
     );
 }
+
+const BackgroundFetchComponent = () => {
+    const { currentLocation } = React.useContext(LocationContext);
+
+    React.useEffect(() => {
+        const registerBackgroundTask = async () => {
+            if (currentLocation) {
+                const { latitude, longitude } = currentLocation;
+                await registerBackgroundFetchAsync(latitude, longitude);
+            }
+        };
+
+        registerBackgroundTask();
+    }, [currentLocation]);
+
+    return null;
+};
+
+export default App;

@@ -9,6 +9,8 @@ import LocationDetailsScreen from "../screens/details/LocationDetails";
 import { APP } from "../constants/index";
 import SettingsScreen from "../screens/settings/SettingsScreen";
 import HomeScreen from "../screens/home/HomeScreen";
+import ARSCreen from "../screens/ar/ARScreen";
+import SearchScreen from "../screens/search/SearchScreen";
 
 const AppStackNavigator = () => {
     return (
@@ -38,6 +40,16 @@ const AppStackNavigator = () => {
             <Stack.Screen
                 name={APP.SETTINGS}
                 component={SettingsScreen}
+                options={{ headerShown: false, navigationBarColor: "transparent", animationEnabled: true }}
+            />
+            <Stack.Screen
+                name={APP.AR}
+                component={ARSCreen}
+                options={{ headerShown: false, navigationBarColor: "transparent", animationEnabled: true }}
+            />
+            <Stack.Screen
+                name={APP.SEARCH}
+                component={SearchScreen}
                 options={{ headerShown: false, navigationBarColor: "transparent", animationEnabled: true }}
             />
         </Stack.Navigator>

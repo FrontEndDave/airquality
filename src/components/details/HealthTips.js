@@ -28,7 +28,7 @@ const HealthTips = () => {
                             <View
                                 key={tip.id}
                                 style={{ display: "flex", flexDirection: "row", alignItems: "center", gap: 15, paddingLeft: 0 }}>
-                                <View style={{ width: 8, height: 8, backgroundColor: "#4d4d4d", borderRadius: "100%" }} />
+                                <View style={{ width: 8, height: 8, backgroundColor: "#4d4d4d", borderRadius: 1000 }} />
                                 <Text style={{ fontFamily: "Regular", fontSize: 17, color: "#4d4d4d", width: "100%" }}>{tip.text}</Text>
                             </View>
                         ))}

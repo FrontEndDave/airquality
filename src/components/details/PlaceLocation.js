@@ -4,13 +4,13 @@ import MapView, { Marker } from "react-native-maps";
 import PinIcon from "../../assets/svg/pin";
 import { useTranslation } from "react-i18next";
 
-const PlaceLocation = ({ currentLocation }) => {
+const PlaceLocation = ({ currentLocation, coordinates }) => {
     if (!currentLocation) return null;
     const { t } = useTranslation();
 
     const initialRegion = {
-        latitude: currentLocation.latitude,
-        longitude: currentLocation.longitude,
+        latitude: coordinates ? coordinates.latitude : currentLocation.latitude,
+        longitude: coordinates ? coordinates.longitude : currentLocation.longitude,
         latitudeDelta: 0.0922,
         longitudeDelta: 0.0421,
     };

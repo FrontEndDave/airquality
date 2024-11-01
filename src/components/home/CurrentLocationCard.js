@@ -23,7 +23,8 @@ const CurrentLocationCard = ({ address, weather }) => {
     }, []);
 
     const handlePress = () => {
-        navigation.navigate(APP.DETAILS, { address });
+        const place = address.city;
+        navigation.navigate(APP.DETAILS, { place });
     };
 
     const isDayTime = weather.current.is_day === 1;
