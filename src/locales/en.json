@@ -1,21 +1,24 @@
 {
     "hello": "Hello,",
     "title": "Check the air quality in any location you want!",
+    "from": "From",
+    "to": "to",
     "searchPlaceholder": "Search location",
     "savedLocations": "Saved locations",
     "currentLocation": "Current location",
-    "seeMore": "View All",
-    "airQualityTitle": "Air quality",
-    "aqiShortcut": "Air Quality Index",
-    "feelsLikeTemperature": "Feels like",
-    "healthTipsTitle": "Health tips",
+    "seeMore": "See more",
+    "airQualityTitle": "Air Quality",
+    "aqiShortcut": "Air Quality",
+    "feelsLikeTemperature": "Feels-like temperature",
+    "feelsLikeTemperature2": "Feels-like temperature",
+    "healthTipsTitle": "Health Tips",
     "healthTips": [
         {
             "id": 1,
             "tips": [
                 { "id": 1, "text": "Regularly ventilate rooms to improve air quality." },
-                { "id": 2, "text": "Engage in outdoor activities while enjoying clean air." },
-                { "id": 3, "text": "Maintain proper hydration by drinking plenty of water." },
+                { "id": 2, "text": "Enjoy outdoor activities in fresh, healthy air." },
+                { "id": 3, "text": "Stay hydrated by drinking plenty of water." },
                 { "id": 4, "text": "Wearing a mask is not necessary." }
             ]
         },
@@ -23,8 +26,8 @@
             "id": 2,
             "tips": [
                 { "id": 1, "text": "Regularly ventilate rooms to improve air quality." },
-                { "id": 2, "text": "Engage in outdoor activities while enjoying clean air." },
-                { "id": 3, "text": "Consume meals rich in vitamins and minerals." },
+                { "id": 2, "text": "Enjoy outdoor activities in fresh, healthy air." },
+                { "id": 3, "text": "Eat foods rich in vitamins and minerals." },
                 { "id": 4, "text": "Wearing a mask is not necessary." }
             ]
         },
@@ -32,28 +35,73 @@
             "id": 3,
             "tips": [
                 { "id": 1, "text": "Ventilate rooms briefly, preferably in the morning." },
-                { "id": 2, "text": "Limit intense exercise and choose gentler activities like walking or stretching." },
-                { "id": 3, "text": "Drink warm beverages to support your airways." },
-                { "id": 4, "text": "Consider wearing a mask during intense exertion." }
+                { "id": 2, "text": "Limit intense exercises and opt for gentle activities like walking or stretching." },
+                { "id": 3, "text": "Drink warm beverages to support respiratory health." },
+                { "id": 4, "text": "Consider wearing a mask during strenuous activities." }
             ]
         },
         {
             "id": 4,
             "tips": [
-                { "id": 1, "text": "Close all windows and use an air purifier if possible." },
-                { "id": 2, "text": "Avoid exercising outdoors; the air quality is poor." },
-                { "id": 3, "text": "Boost your immunity through a healthy diet and supplements." },
-                { "id": 4, "text": "If possible, wear a protective mask outdoors." }
+                { "id": 1, "text": "Close all windows, and use an air purifier if possible." },
+                { "id": 2, "text": "Avoid exercising outdoors, as air quality is poor." },
+                { "id": 3, "text": "Boost immunity through a healthy diet and supplements." },
+                { "id": 4, "text": "Wear a protective mask outdoors if possible." }
             ]
         },
         {
             "id": 5,
             "tips": [
-                { "id": 1, "text": "Close all windows and use an air purifier if possible." },
-                { "id": 2, "text": "Avoid exercising outdoors; the air quality is poor." },
-                { "id": 3, "text": "Consult a doctor if you have breathing problems." },
-                { "id": 4, "text": "If possible, wear a protective mask outdoors." }
+                { "id": 1, "text": "Close all windows, and use an air purifier if possible." },
+                { "id": 2, "text": "Avoid exercising outdoors, as air quality is poor." },
+                { "id": 3, "text": "Consult a doctor if you experience breathing issues." },
+                { "id": 4, "text": "Wear a protective mask outdoors if possible." }
             ]
         }
-    ]
+    ],
+    "aqi": {
+        "title": "Air Quality Index",
+        "description": "The Air Quality Index (AQI) is an indicator that measures air pollution, assessing its impact on human health based on concentrations of harmful substances such as PM2.5, PM10, nitrogen dioxide (NO2), and ozone (O3). AQI values are presented on a scale that informs about the level of risk, allowing users to make informed decisions about outdoor activities.",
+        "alternative": "Air Quality Categories",
+        "good": "Good",
+        "moderate": "Moderate",
+        "sensitive": "Unhealthy for Sensitive Groups",
+        "unhealthy": "Unhealthy",
+        "veryUnhealthy": "Very Unhealthy"
+    },
+    "pm10": {
+        "title": "Particulate Matter PM10",
+        "description": "PM10 particles are less than 10 micrometers in diameter and can settle in the upper respiratory tract and bronchi, causing coughing, shortness of breath, and breathing difficulties, especially during physical exertion. They increase the risk of respiratory infections and can worsen allergy symptoms such as asthma or conjunctivitis."
+    },
+    "pm2_5": {
+        "title": "Fine Particulate Matter PM2.5",
+        "description": "Fine particulate matter PM2.5, with a diameter below 2.5 micrometers, can penetrate the lower respiratory tract and bloodstream, increasing the risk of heart diseases, such as hypertension and heart attack, and lung cancer. PM2.5 particles, like PM10, can cause coughing, shortness of breath, and breathing difficulties, especially during physical exertion."
+    },
+    "no2": {
+        "title": "Nitrogen Dioxide (NO2)",
+        "description": "NO2 is a gas primarily generated from fuel combustion, and its presence in the air can irritate the respiratory tract. Long-term exposure can lead to chronic respiratory diseases and increase the risk of lung infections. NO2 may also worsen asthma symptoms and negatively affect children's development."
+    },
+    "o3": {
+        "title": "Ozone (O3)",
+        "description": "Ozone is a gas that protects us from UV radiation in the upper atmosphere, but at ground level, it can be harmful. Inhaling ozone can lead to respiratory tract irritation, coughing, and difficulty breathing, especially for people with respiratory diseases. High ozone concentrations can also reduce lung capacity and affect heart health."
+    },
+    "so2": {
+        "title": "Sulfur Dioxide (SO2)",
+        "description": "SO2 is a gas emitted during fossil fuel combustion and industrial processes. It can cause respiratory tract irritation, coughing, and worsen asthma and chronic obstructive pulmonary disease symptoms. Long-term exposure to SO2 may lead to lung diseases and increase the risk of heart disease."
+    },
+    "co": {
+        "title": "Carbon Monoxide (CO)",
+        "description": "Carbon monoxide is a colorless, odorless gas produced by incomplete combustion of fuels. It is dangerous because it can bind with hemoglobin in the blood, leading to oxygen deprivation. Symptoms of CO poisoning include headaches, dizziness, weakness, and, in extreme cases, can be fatal. People with heart and respiratory diseases are particularly vulnerable to CO's negative effects."
+    },
+    "settingsTitle": "Settings",
+    "settings": {
+        "languageTitle": "Language",
+        "polishLanguage": "Polish",
+        "englishLanguage": "English",
+        "languageSearchPlaceholder": "Search language",
+        "unitsTitle": "Measurement Units",
+        "dataTitle": "Clear all data",
+        "infoTitle": "App Information",
+        "nameTitle": "Username"
+    }
 }

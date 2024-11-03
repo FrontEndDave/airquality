@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { SafeAreaView, Text, TouchableOpacity, View } from "react-native";
+import { useTranslation } from "react-i18next";
 import { useNavigation } from "@react-navigation/native";
 
 import BackIcon from "../../assets/svg/backIcon";
@@ -7,6 +8,7 @@ import WeatherContext from "../../context/WeatherContext";
 import AddIcon from "../../assets/svg/add";
 
 const Hero = ({ name, saveIcon }) => {
+    const { t } = useTranslation();
     const navigation = useNavigation();
     const { weather } = useContext(WeatherContext);
 
@@ -18,9 +20,9 @@ const Hero = ({ name, saveIcon }) => {
     };
 
     return (
-        <SafeAreaView style={{ marginHorizontal: 25 }}>
+        <SafeAreaView style={{ width: "100%" }}>
             {saveIcon === true ? (
-                <View style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexDirection: "row", marginTop: 15, paddingBottom: 10 }}>
+                <View style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexDirection: "row", marginTop: 15, paddingBottom: 10, width: "100%" }}>
                     <TouchableOpacity onPress={() => navigation.goBack()}>
                         <BackIcon
                             color='#000'
@@ -31,7 +33,7 @@ const Hero = ({ name, saveIcon }) => {
                     <View style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
                         <Text style={{ fontFamily: "SemiBold", fontSize: 24 }}>{name}</Text>
                         <Text style={{ fontFamily: "Regular", fontSize: 18, color: "#4d4d4d" }}>
-                            {currentTemprature.toFixed(0)}° | Temperatura odczuwalna: {feelLikeTemprature.toFixed(0)}°
+                            {currentTemprature.toFixed(0)}° | {t("feelsLikeTemperature2")}: {feelLikeTemprature.toFixed(0)}°
                         </Text>
                     </View>
                     <TouchableOpacity onPress={hadleSaveLocation}>
@@ -46,7 +48,7 @@ const Hero = ({ name, saveIcon }) => {
                 <View style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "row", marginTop: 15, paddingBottom: 10 }}>
                     <TouchableOpacity
                         onPress={() => navigation.goBack()}
-                        style={{ position: "absolute", top: 0, left: 0, zIndex: 999 }}>
+                        style={{ position: "absolute", top: 0, left: 25, zIndex: 999 }}>
                         <BackIcon
                             color='#000'
                             width={30}
@@ -56,7 +58,7 @@ const Hero = ({ name, saveIcon }) => {
                     <View style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
                         <Text style={{ fontFamily: "SemiBold", fontSize: 24 }}>{name}</Text>
                         <Text style={{ fontFamily: "Regular", fontSize: 18, color: "#4d4d4d" }}>
-                            {currentTemprature.toFixed(0)}° | Temperatura odczuwalna: {feelLikeTemprature.toFixed(0)}°
+                            {currentTemprature.toFixed(0)}° | {t("feelsLikeTemperature2")}: {feelLikeTemprature.toFixed(0)}°
                         </Text>
                     </View>
                 </View>

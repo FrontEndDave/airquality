@@ -1,6 +1,8 @@
 {
     "hello": "Cześć,",
     "title": "Sprawdź stan powietrza w dowolnym miejscu!",
+    "from": "Od",
+    "to": "do",
     "searchPlaceholder": "Wyszukaj lokalizację",
     "savedLocations": "Zapisane lokalizacje",
     "currentLocation": "Aktualna lokalizacja",
@@ -8,6 +10,7 @@
     "airQualityTitle": "Jakość powietrza",
     "aqiShortcut": "Jakość Powietrza",
     "feelsLikeTemperature": "Odczuwalna temperatura",
+    "feelsLikeTemperature2": "Temperatura odczuwalna",
     "healthTipsTitle": "Porady zdrowotne",
     "healthTips": [
         {
@@ -89,5 +92,16 @@
     "co": {
         "title": "Tlenek węgla (CO)",
         "description": "Tlenek węgla to bezbarwny i bezwonny gaz, który powstaje w wyniku niepełnego spalania paliw. Jest niebezpieczny, ponieważ może łączyć się z hemoglobiną w krwi, co prowadzi do niedotlenienia organizmu. Objawy zatrucia tlenkiem węgla mogą obejmować bóle głowy, zawroty głowy, osłabienie, a w skrajnych przypadkach mogą być śmiertelne. Osoby z chorobami serca oraz układu oddechowego są szczególnie narażone na negatywne skutki działania CO."
+    },
+    "settingsTitle": "Ustawienia",
+    "settings": {
+        "languageTitle": "Język",
+        "polishLanguage": "Polski",
+        "englishLanguage": "Angielski",
+        "languageSearchPlaceholder": "Wyszukaj język",
+        "unitsTitle": "Jednostki miary",
+        "dataTitle": "Wyczyść wszystkie dane",
+        "infoTitle": "Informacje o aplikacji",
+        "nameTitle": "Nazwa użytkownika"
     }
 }

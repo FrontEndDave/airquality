@@ -15,12 +15,14 @@ const Hero = () => {
         <View style={{ width: "100%", paddingHorizontal: 25 }}>
             <View style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
                 <View style={{ display: "flex", flexDirection: "row", alignItems: "center", gap: 12 }}>
-                    <View style={{ width: 48, height: 48, borderRadius: 200, backgroundColor: "#2AB8A0", display: "flex", justifyContent: "center", alignItems: "center" }}>
-                        <StaticLogo
-                            width={28}
-                            height={28}
-                        />
-                    </View>
+                    <TouchableOpacity onPress={() => navigation.navigate(APP.SETTINGS)}>
+                        <View style={{ width: 48, height: 48, borderRadius: 200, backgroundColor: "#2AB8A0", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                            <StaticLogo
+                                width={28}
+                                height={28}
+                            />
+                        </View>
+                    </TouchableOpacity>
                     <Text style={{ fontFamily: "Medium", fontSize: 18 }}>{t("hello")} User!</Text>
                 </View>
                 <TouchableOpacity onPress={() => navigation.navigate(APP.AR)}>

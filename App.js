@@ -1,4 +1,4 @@
-import { Poppins_200ExtraLight, Poppins_300Light, Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold, Poppins_700Bold, Poppins_800ExtraBold, Poppins_900Black, useFonts } from "@expo-google-fonts/poppins";
+import { Poppins_100Thin, Poppins_200ExtraLight, Poppins_300Light, Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold, Poppins_700Bold, Poppins_800ExtraBold, Poppins_900Black, useFonts } from "@expo-google-fonts/poppins";
 import { NavigationContainer } from "@react-navigation/native";
 import * as Location from "expo-location";
 import * as Notifications from "expo-notifications";
@@ -16,6 +16,7 @@ import "./src/services/i18next";
 
 function App() {
     const [fontsLoaded] = useFonts({
+        Thin: Poppins_100Thin,
         ExtraLight: Poppins_200ExtraLight,
         Light: Poppins_300Light,
         Regular: Poppins_400Regular,

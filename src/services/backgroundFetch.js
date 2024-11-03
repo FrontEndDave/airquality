@@ -14,7 +14,7 @@ TaskManager.defineTask(BACKGROUND_FETCH_TASK, async (taskData) => {
 
         const aqi = data.current.air_quality["us-epa-index"];
 
-        if (aqi >= 1) {
+        if (aqi >= 4) {
             await Notifications.scheduleNotificationAsync({
                 content: {
                     title: "Uwaga! Wysoka jakość powietrza",
@@ -23,8 +23,6 @@ TaskManager.defineTask(BACKGROUND_FETCH_TASK, async (taskData) => {
                 trigger: null,
             });
         }
-
-        console.log(`Sprawdzono AQI: ${aqi}`);
     } catch (error) {
         console.error("Błąd przy pobieraniu danych AQI:", error);
     }
@@ -34,7 +32,7 @@ TaskManager.defineTask(BACKGROUND_FETCH_TASK, async (taskData) => {
 
 export const registerBackgroundFetchAsync = async (latitude, longitude) => {
     return BackgroundFetch.registerTaskAsync(BACKGROUND_FETCH_TASK, {
-        minimumInterval: 60 * 2,
+        minimumInterval: 60 * 30,
         stopOnTerminate: false,
         startOnBoot: true,
         taskData: { latitude, longitude },

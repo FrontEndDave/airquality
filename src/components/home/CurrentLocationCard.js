@@ -53,7 +53,7 @@ const CurrentLocationCard = ({ address, weather }) => {
                     <View style={{ display: "flex", flexDirection: "col", justifyContent: "space-between", marginHorizontal: 15, alignItems: "flex-end", height: "100%" }}>
                         <Text style={{ fontFamily: "Regular", fontSize: 48, color: "#fff" }}>{weather.current.temp_c.toFixed(0)}°</Text>
                         <Text style={{ fontFamily: "Regular", fontSize: 16, color: "#fff" }}>
-                            Od {weather.forecast.forecastday[0].day.mintemp_c.toFixed(0)}° do {weather.forecast.forecastday[0].day.maxtemp_c.toFixed(0)}°
+                            {t("from")} {weather.forecast.forecastday[0].day.mintemp_c.toFixed(0)}° {t("to")} {weather.forecast.forecastday[0].day.maxtemp_c.toFixed(0)}°
                         </Text>
                     </View>
                 </LinearGradient>
