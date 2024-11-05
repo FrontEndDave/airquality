@@ -271,7 +271,6 @@ export const APP = {
     SEARCH: "SearchScreen",
     SETTINGS_LANGUAGE: "SettingsLanguageScreen",
     SETTINGS_UNITS: "SettingsUnitsScreen",
-    SETTINGS_DATA: "SettingsDataScreen",
     SETTINGS_INFO: "SettingsInfoScreen",
     SETTINGS_NAME: "SettingsNameScreen",
 };

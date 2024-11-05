@@ -16,8 +16,6 @@ import AirQualityForecast from "../../components/details/AirQualityForecast";
 const LocationDetailsScreen = (props) => {
     const { address, coordinates } = props.route.params;
 
-    console.log(address);
-
     const [refreshing, setRefreshing] = React.useState(false);
     const { currentLocation } = useContext(LocationContext);
     const { getWeather } = useContext(WeatherContext);

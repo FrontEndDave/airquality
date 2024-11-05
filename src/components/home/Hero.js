@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Dimensions, Text, TouchableOpacity, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 
-import StaticLogo from "../../assets/svg/staticLogo";
 import { useNavigation } from "@react-navigation/native";
-import { APP } from "../../constants";
 import CameraIcon from "../../assets/svg/camera";
+import StaticLogo from "../../assets/svg/staticLogo";
+import { APP } from "../../constants";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { NameContext } from "../../context/NameContext";
 
 const Hero = () => {
     const { t } = useTranslation();
     const navigation = useNavigation();
+    const { username } = useContext(NameContext);
 
     return (
         <View style={{ width: "100%", paddingHorizontal: 25 }}>
@@ -23,7 +26,9 @@ const Hero = () => {
                             />
                         </View>
                     </TouchableOpacity>
-                    <Text style={{ fontFamily: "Medium", fontSize: 18 }}>{t("hello")} User!</Text>
+                    <Text style={{ fontFamily: "Medium", fontSize: 18 }}>
+                        {t("hello")} {username ? username : "User"}!
+                    </Text>
                 </View>
                 <TouchableOpacity onPress={() => navigation.navigate(APP.AR)}>
                     <View style={{ width: 44, height: 44, borderRadius: 500, backgroundColor: "#E8E8E8", display: "flex", justifyContent: "center", alignItems: "center" }}>

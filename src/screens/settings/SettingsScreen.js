@@ -1,21 +1,15 @@
-import React, { useContext, useEffect, useState } from "react";
-import { ScrollView, StatusBar, StyleSheet, Text, View } from "react-native";
-import Animated, { Easing, runOnJS, useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated";
+import React from "react";
+import { StatusBar, View } from "react-native";
 
-import AnimatedLogo from "../../assets/svg/animatedLogo";
-import { APP } from "../../constants";
-
-import LocationContext from "../../context/LocationContext";
-import WeatherContext from "../../context/WeatherContext";
-import Hero from "../../components/settings/Hero";
 import Header from "../../components/common/Header";
-import LanguageSettings from "../../components/settings/Language";
-import UnitsSettings from "../../components/settings/Units";
 import DataSettings from "../../components/settings/Data";
+import Hero from "../../components/settings/Hero";
 import InfoSettings from "../../components/settings/Info";
+import LanguageSettings from "../../components/settings/Language";
 import NameSettings from "../../components/settings/Name";
+import UnitsSettings from "../../components/settings/Units";
 
-const SettingsScreen = ({ navigation }) => {
+const SettingsScreen = () => {
     return (
         <>
             <StatusBar barStyle='dark' />

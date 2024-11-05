@@ -12,6 +12,9 @@ import HomeScreen from "../screens/home/HomeScreen";
 import ARSCreen from "../screens/ar/ARScreen";
 import SearchScreen from "../screens/search/SearchScreen";
 import SettingsLanguageScreen from "../screens/settings/SettingsLanguageScreen";
+import SettingsNameScreen from "../screens/settings/SettingsNameScreen";
+import AppInfoScreen from "../screens/settings/AppInfoScreen";
+import SettingsUnitsScreen from "../screens/settings/SettingsUnitsScreen";
 
 const AppStackNavigator = () => {
     return (
@@ -56,6 +59,21 @@ const AppStackNavigator = () => {
             <Stack.Screen
                 name={APP.SETTINGS_LANGUAGE}
                 component={SettingsLanguageScreen}
+                options={{ headerShown: false, navigationBarColor: "transparent", animationEnabled: true }}
+            />
+            <Stack.Screen
+                name={APP.SETTINGS_NAME}
+                component={SettingsNameScreen}
+                options={{ headerShown: false, navigationBarColor: "transparent", animationEnabled: true }}
+            />
+            <Stack.Screen
+                name={APP.SETTINGS_INFO}
+                component={AppInfoScreen}
+                options={{ headerShown: false, navigationBarColor: "transparent", animationEnabled: true }}
+            />
+            <Stack.Screen
+                name={APP.SETTINGS_UNITS}
+                component={SettingsUnitsScreen}
                 options={{ headerShown: false, navigationBarColor: "transparent", animationEnabled: true }}
             />
         </Stack.Navigator>

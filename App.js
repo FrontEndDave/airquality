@@ -2,7 +2,8 @@ import { Poppins_100Thin, Poppins_200ExtraLight, Poppins_300Light, Poppins_400Re
 import { NavigationContainer } from "@react-navigation/native";
 import * as Location from "expo-location";
 import * as Notifications from "expo-notifications";
-import React, { useEffect } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import React, { useEffect, useState } from "react";
 
 import AppStackNavigator from "./src/navigation/AppNavigator";
 
@@ -13,8 +14,11 @@ import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { registerBackgroundFetchAsync } from "./src/services/backgroundFetch";
 import "./src/services/i18next";
+import { i18next } from "./src/services/i18next";
+import { NameProvider } from "./src/context/NameContext";
 
 function App() {
+    const [languageLoaded, setLanguageLoaded] = useState(false);
     const [fontsLoaded] = useFonts({
         Thin: Poppins_100Thin,
         ExtraLight: Poppins_200ExtraLight,
@@ -43,19 +47,31 @@ function App() {
                 }
             }
         })();
+
+        const loadLanguageSetting = async () => {
+            const savedLanguage = await AsyncStorage.getItem("appLanguage");
+            if (savedLanguage) {
+                await i18next.changeLanguage(savedLanguage);
+            }
+            setLanguageLoaded(true);
+        };
+
+        loadLanguageSetting();
     }, []);
 
     return (
         <LocationProvider>
             <WeatherProvider>
-                <NavigationContainer>
-                    <GestureHandlerRootView style={{ flex: 1 }}>
-                        <BottomSheetModalProvider>
-                            <BackgroundFetchComponent />
-                            <AppStackNavigator />
-                        </BottomSheetModalProvider>
-                    </GestureHandlerRootView>
-                </NavigationContainer>
+                <NameProvider>
+                    <NavigationContainer>
+                        <GestureHandlerRootView style={{ flex: 1 }}>
+                            <BottomSheetModalProvider>
+                                <BackgroundFetchComponent />
+                                <AppStackNavigator />
+                            </BottomSheetModalProvider>
+                        </GestureHandlerRootView>
+                    </NavigationContainer>
+                </NameProvider>
             </WeatherProvider>
         </LocationProvider>
     );

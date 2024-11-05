@@ -95,13 +95,41 @@
     },
     "settingsTitle": "Ustawienia",
     "settings": {
-        "languageTitle": "Język",
-        "polishLanguage": "Polski",
-        "englishLanguage": "Angielski",
-        "languageSearchPlaceholder": "Wyszukaj język",
-        "unitsTitle": "Jednostki miary",
-        "dataTitle": "Wyczyść wszystkie dane",
-        "infoTitle": "Informacje o aplikacji",
-        "nameTitle": "Nazwa użytkownika"
+        "language": {
+            "languageTitle": "Język",
+            "polishLanguage": "Polski",
+            "englishLanguage": "Angielski",
+            "languageSearchPlaceholder": "Wyszukaj język"
+        },
+        "units": {
+            "unitsTitle": "Jednostki miary",
+            "temperature": "Temperatura",
+            "speed": "Prędkość",
+            "celsius": "Celsjusz",
+            "fahrenheit": "Fahrenheit"
+        },
+        "data": {
+            "dataTitle": "Wyczyść wszystkie dane",
+            "clearDataConfirmation": "Czy na pewno chcesz usunąć wszystkie dane?",
+            "clearDataWarning": "Ta akcja spowoduje usunięcie wszystkich danych użytkownika oraz wyczyszczenie ustawień aplikacji. Nie można jej cofnąć.",
+            "cancel": "Anuluj",
+            "confirm": "Potwierdź"
+        },
+        "name": {
+            "nameTitle": "Nazwa użytkownika",
+            "nameInputPlaceholder": "Wprowadź nazwę użytkownika"
+        },
+        "info": {
+            "infoTitle": "Informacje o aplikacji",
+            "authorTitle": "Autorzy",
+            "authorName": "Dawid Piela, Maciej Wardach",
+            "technologyTitle": "Technologie",
+            "technologyDetails": "Aplikacja wykorzystuje React Native do budowy interfejsu użytkownika. Dzięki bibliotece i18next aplikacja obsługuje wiele języków, co zwiększa jej dostępność na globalnym rynku. AsyncStorage zapewnia bezpieczne i wydajne przechowywanie danych lokalnych, co pozwala użytkownikom na dostęp do spersonalizowanych ustawień. Dodatkowo, aplikacja integruje modele 3D, które umożliwiają użytkownikom lepsze zrozumienie i interakcję z informacjami.",
+            "versionTitle": "Wersja",
+            "versionNumber": "1.0.0",
+            "descriptionTitle": "Opis",
+            "descriptionText": "Aplikacja stworzona na konkurs Hack Heroes 2024 jest zaawansowanym narzędziem do monitorowania jakości powietrza na całym świecie. Dzięki niej użytkownicy mogą na bieżąco sprawdzać poziom zanieczyszczeń oraz warunki środowiskowe w dowolnym miejscu, niezależnie od tego, gdzie się znajdują. Aplikacja obsługuje wiele języków, co sprawia, że jest dostępna dla użytkowników z różnych krajów i kultur.",
+            "secondDescriptionText": "Zaprojektowana z myślą o bezpieczeństwie i aktualności, aplikacja regularnie pobiera dane z wiarygodnych źródeł, aby dostarczyć najbardziej precyzyjne informacje. Gwarantuje również wysoki standard ochrony prywatności użytkownika. To doskonałe narzędzie dla osób dbających o zdrowie i środowisko, które chcą być świadome jakości powietrza w swoim otoczeniu oraz w innych regionach świata."
+        }
     }
 }

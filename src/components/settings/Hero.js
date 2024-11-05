@@ -26,7 +26,7 @@ const Hero = ({ text }) => {
                     />
                 </TouchableOpacity>
                 <View style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-                    <Text style={{ fontFamily: "SemiBold", fontSize: 24 }}>{text ? text : t("settingsTitle")}</Text>
+                    <Text style={{ fontFamily: "SemiBold", fontSize: 24, paddingHorizontal: 50, textAlign: "center" }}>{text ? text : t("settingsTitle")}</Text>
                 </View>
             </View>
         </View>
