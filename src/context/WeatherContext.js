@@ -8,6 +8,7 @@ import { API_KEY } from "../constants/index";
 
 export const WeatherProvider = ({ children }) => {
     const [weather, setWeather] = useState(null);
+    const [currentLocationWeather, setCurrentLocationWeather] = useState(null);
     const [units, setUnits] = useState({ temperature: "celsius", speed: "km/h" });
     const BASE_URL = "https://api.weatherapi.com/v1/forecast.json";
 
@@ -17,26 +18,27 @@ export const WeatherProvider = ({ children }) => {
             if (savedUnits) {
                 setUnits(JSON.parse(savedUnits));
             }
-        } catch (error) {
-            console.error("Błąd podczas ładowania jednostek:", error);
-        }
+        } catch (error) {}
     };
 
     const saveUnits = async (newUnits) => {
         try {
             await AsyncStorage.setItem("units", JSON.stringify(newUnits));
-        } catch (error) {
-            console.error("Błąd podczas zapisywania jednostek:", error);
-        }
+        } catch (error) {}
     };
 
     const getWeather = async (latitude, longitude) => {
         try {
             const response = await axios.get(`${BASE_URL}?key=${API_KEY}&q=${latitude},${longitude}&days=5&aqi=yes&alerts=no`);
             setWeather(response.data);
-        } catch (error) {
-            console.error("Błąd podczas pobierania aktualnej pogody:", error);
-        }
+        } catch (error) {}
+    };
+
+    const getCurrentLocationWeather = async (latitude, longitude) => {
+        try {
+            const response = await axios.get(`${BASE_URL}?key=${API_KEY}&q=${latitude},${longitude}&days=5&aqi=yes&alerts=no`);
+            setCurrentLocationWeather(response.data);
+        } catch (error) {}
     };
 
     const changeUnit = (type, value) => {
@@ -49,7 +51,7 @@ export const WeatherProvider = ({ children }) => {
         loadUnits();
     }, []);
 
-    return <WeatherContext.Provider value={{ weather, getWeather, units, changeUnit }}>{children}</WeatherContext.Provider>;
+    return <WeatherContext.Provider value={{ weather, currentLocationWeather, getWeather, getCurrentLocationWeather, units, changeUnit }}>{children}</WeatherContext.Provider>;
 };
 
 export default WeatherContext;

@@ -9,17 +9,19 @@ import Hero from "../../components/home/Hero";
 import SearchInput from "../../components/home/Serch";
 import LocationContext from "../../context/LocationContext";
 import WeatherContext from "../../context/WeatherContext";
+import Footer from "../../components/common/Footer";
 
 const HomeScreen = () => {
     const [refreshing, setRefreshing] = React.useState(false);
     const { currentLocation } = useContext(LocationContext);
-    const { getWeather } = useContext(WeatherContext);
+    const { getWeather, getCurrentLocationWeather } = useContext(WeatherContext);
 
     const onRefresh = React.useCallback(() => {
         setRefreshing(true);
         setTimeout(() => {
             setRefreshing(false);
             if (currentLocation) {
+                getCurrentLocationWeather(currentLocation.latitude, currentLocation.longitude);
                 getWeather(currentLocation.latitude, currentLocation.longitude);
             }
         }, 2000);
@@ -40,9 +42,10 @@ const HomeScreen = () => {
                 style={{ backgroundColor: "#F3F3F3" }}>
                 <Hero />
                 <SearchInput />
-                <FavoriteLocations />
-                <CurrentLocation />
+                <FavoriteLocations currentLocation={currentLocation ? true : false} />
+                {currentLocation && <CurrentLocation />}
             </ScrollView>
+            <Footer active='home' />
         </>
     );
 };

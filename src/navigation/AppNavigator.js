@@ -9,12 +9,12 @@ import LocationDetailsScreen from "../screens/details/LocationDetails";
 import { APP } from "../constants/index";
 import SettingsScreen from "../screens/settings/SettingsScreen";
 import HomeScreen from "../screens/home/HomeScreen";
-import ARSCreen from "../screens/ar/ARScreen";
 import SearchScreen from "../screens/search/SearchScreen";
 import SettingsLanguageScreen from "../screens/settings/SettingsLanguageScreen";
 import SettingsNameScreen from "../screens/settings/SettingsNameScreen";
 import AppInfoScreen from "../screens/settings/AppInfoScreen";
 import SettingsUnitsScreen from "../screens/settings/SettingsUnitsScreen";
+import SavedLocationsScreen from "../screens/saved/SavedLocations";
 
 const AppStackNavigator = () => {
     return (
@@ -47,13 +47,13 @@ const AppStackNavigator = () => {
                 options={{ headerShown: false, navigationBarColor: "transparent", animationEnabled: true }}
             />
             <Stack.Screen
-                name={APP.AR}
-                component={ARSCreen}
+                name={APP.SEARCH}
+                component={SearchScreen}
                 options={{ headerShown: false, navigationBarColor: "transparent", animationEnabled: true }}
             />
             <Stack.Screen
-                name={APP.SEARCH}
-                component={SearchScreen}
+                name={APP.SAVED}
+                component={SavedLocationsScreen}
                 options={{ headerShown: false, navigationBarColor: "transparent", animationEnabled: true }}
             />
             <Stack.Screen

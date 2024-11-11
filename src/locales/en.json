@@ -6,18 +6,20 @@
     "searchPlaceholder": "Search location",
     "savedLocations": "Saved locations",
     "currentLocation": "Current location",
+    "addNewLocation": "Add new location",
     "seeMore": "See more",
+    "addLocation": "Add",
     "airQualityTitle": "Air Quality",
     "aqiShortcut": "Air Quality",
-    "feelsLikeTemperature": "Feels-like temperature",
-    "feelsLikeTemperature2": "Feels-like temperature",
+    "feelsLikeTemperature": "Feels like temperature",
+    "feelsLikeTemperature2": "Perceived temperature",
     "healthTipsTitle": "Health Tips",
     "healthTips": [
         {
             "id": 1,
             "tips": [
-                { "id": 1, "text": "Regularly ventilate rooms to improve air quality." },
-                { "id": 2, "text": "Enjoy outdoor activities in fresh, healthy air." },
+                { "id": 1, "text": "Ventilate rooms regularly to improve air quality." },
+                { "id": 2, "text": "Enjoy outdoor activities in healthy air." },
                 { "id": 3, "text": "Stay hydrated by drinking plenty of water." },
                 { "id": 4, "text": "Wearing a mask is not necessary." }
             ]
@@ -25,9 +27,9 @@
         {
             "id": 2,
             "tips": [
-                { "id": 1, "text": "Regularly ventilate rooms to improve air quality." },
-                { "id": 2, "text": "Enjoy outdoor activities in fresh, healthy air." },
-                { "id": 3, "text": "Eat foods rich in vitamins and minerals." },
+                { "id": 1, "text": "Ventilate rooms regularly to improve air quality." },
+                { "id": 2, "text": "Enjoy outdoor activities in healthy air." },
+                { "id": 3, "text": "Eat meals rich in vitamins and minerals." },
                 { "id": 4, "text": "Wearing a mask is not necessary." }
             ]
         },
@@ -35,73 +37,115 @@
             "id": 3,
             "tips": [
                 { "id": 1, "text": "Ventilate rooms briefly, preferably in the morning." },
-                { "id": 2, "text": "Limit intense exercises and opt for gentle activities like walking or stretching." },
-                { "id": 3, "text": "Drink warm beverages to support respiratory health." },
-                { "id": 4, "text": "Consider wearing a mask during strenuous activities." }
+                { "id": 2, "text": "Limit intense exercise; choose gentler activities like walking or stretching." },
+                { "id": 3, "text": "Drink warm beverages to support your respiratory system." },
+                { "id": 4, "text": "Consider wearing a mask during intense physical activity." }
             ]
         },
         {
             "id": 4,
             "tips": [
-                { "id": 1, "text": "Close all windows, and use an air purifier if possible." },
-                { "id": 2, "text": "Avoid exercising outdoors, as air quality is poor." },
-                { "id": 3, "text": "Boost immunity through a healthy diet and supplements." },
+                { "id": 1, "text": "Close all windows; use an air purifier if possible." },
+                { "id": 2, "text": "Avoid outdoor exercise, as the air quality is poor." },
+                { "id": 3, "text": "Strengthen immunity through a healthy diet and supplements." },
                 { "id": 4, "text": "Wear a protective mask outdoors if possible." }
             ]
         },
         {
             "id": 5,
             "tips": [
-                { "id": 1, "text": "Close all windows, and use an air purifier if possible." },
-                { "id": 2, "text": "Avoid exercising outdoors, as air quality is poor." },
-                { "id": 3, "text": "Consult a doctor if you experience breathing issues." },
+                { "id": 1, "text": "Close all windows; use an air purifier if possible." },
+                { "id": 2, "text": "Avoid outdoor exercise, as the air quality is poor." },
+                { "id": 3, "text": "Consult a doctor if you have respiratory issues." },
                 { "id": 4, "text": "Wear a protective mask outdoors if possible." }
+            ]
+        },
+        {
+            "id": 6,
+            "tips": [
+                { "id": 1, "text": "Stay indoors, close windows and doors tightly if possible." },
+                { "id": 2, "text": "Use an air purifier with a HEPA filter to reduce indoor pollution." },
+                { "id": 3, "text": "Avoid any outdoor physical activity, even walking." },
+                { "id": 4, "text": "Wear an N95 or higher mask if you must go outside." },
+                { "id": 5, "text": "Consume foods rich in antioxidants and vitamin C to support immunity." },
+                { "id": 6, "text": "Consult a doctor if you experience health issues, especially if you have respiratory or circulatory conditions." }
             ]
         }
     ],
     "aqi": {
         "title": "Air Quality Index",
-        "description": "The Air Quality Index (AQI) is an indicator that measures air pollution, assessing its impact on human health based on concentrations of harmful substances such as PM2.5, PM10, nitrogen dioxide (NO2), and ozone (O3). AQI values are presented on a scale that informs about the level of risk, allowing users to make informed decisions about outdoor activities.",
+        "description": "The Air Quality Index (AQI) measures air pollution levels, assessing its impact on health based on concentrations of harmful substances like PM2.5, PM10, nitrogen dioxide (NO2), and ozone (O3). AQI values are presented on a scale that indicates risk levels, allowing users to make informed decisions about outdoor activities.",
         "alternative": "Air Quality Categories",
         "good": "Good",
         "moderate": "Moderate",
-        "sensitive": "Unhealthy for Sensitive Groups",
+        "sensitive": "Sensitive",
         "unhealthy": "Unhealthy",
-        "veryUnhealthy": "Very Unhealthy"
+        "veryUnhealthy": "Very Unhealthy",
+        "hazardous": "Hazardous"
     },
     "pm10": {
-        "title": "Particulate Matter PM10",
-        "description": "PM10 particles are less than 10 micrometers in diameter and can settle in the upper respiratory tract and bronchi, causing coughing, shortness of breath, and breathing difficulties, especially during physical exertion. They increase the risk of respiratory infections and can worsen allergy symptoms such as asthma or conjunctivitis."
+        "title": "PM10 Particulates",
+        "description": "PM10 particles, less than 10 micrometers in diameter, can settle in the upper respiratory tract and bronchi, causing coughing, shortness of breath, and difficulty breathing, especially during physical exertion. They increase the risk of respiratory infections and may aggravate allergy symptoms, such as asthma and conjunctivitis."
     },
     "pm2_5": {
-        "title": "Fine Particulate Matter PM2.5",
-        "description": "Fine particulate matter PM2.5, with a diameter below 2.5 micrometers, can penetrate the lower respiratory tract and bloodstream, increasing the risk of heart diseases, such as hypertension and heart attack, and lung cancer. PM2.5 particles, like PM10, can cause coughing, shortness of breath, and breathing difficulties, especially during physical exertion."
+        "title": "PM 2.5 Particulates",
+        "description": "Fine PM2.5 particles, smaller than 2.5 micrometers, can penetrate the lower respiratory tract and bloodstream, increasing the risk of heart diseases like hypertension and heart attack over prolonged exposure, as well as lung cancer. These particles, like PM10, can cause coughing, shortness of breath, and difficulty breathing, especially during physical activity."
     },
     "no2": {
         "title": "Nitrogen Dioxide (NO2)",
-        "description": "NO2 is a gas primarily generated from fuel combustion, and its presence in the air can irritate the respiratory tract. Long-term exposure can lead to chronic respiratory diseases and increase the risk of lung infections. NO2 may also worsen asthma symptoms and negatively affect children's development."
+        "description": "NO2, a gas mainly generated during fuel combustion, can irritate respiratory pathways. Long-term exposure may cause chronic respiratory diseases and increase lung infection risk. NO2 may also exacerbate asthma symptoms and negatively impact child development."
     },
     "o3": {
         "title": "Ozone (O3)",
-        "description": "Ozone is a gas that protects us from UV radiation in the upper atmosphere, but at ground level, it can be harmful. Inhaling ozone can lead to respiratory tract irritation, coughing, and difficulty breathing, especially for people with respiratory diseases. High ozone concentrations can also reduce lung capacity and affect heart health."
+        "description": "Ozone, while protective against UV radiation in the upper atmosphere, can be harmful at ground level. Breathing in ozone can irritate respiratory passages, cause coughing, and make breathing difficult, especially for those with respiratory illnesses. High ozone levels can also lower lung capacity and affect heart health."
     },
     "so2": {
         "title": "Sulfur Dioxide (SO2)",
-        "description": "SO2 is a gas emitted during fossil fuel combustion and industrial processes. It can cause respiratory tract irritation, coughing, and worsen asthma and chronic obstructive pulmonary disease symptoms. Long-term exposure to SO2 may lead to lung diseases and increase the risk of heart disease."
+        "description": "SO2, a gas released during the burning of fossil fuels and industrial processes, can irritate respiratory passages, cause coughing, and exacerbate asthma and chronic obstructive pulmonary disease (COPD) symptoms. Prolonged SO2 exposure may lead to lung diseases and increase the risk of heart disease."
     },
     "co": {
         "title": "Carbon Monoxide (CO)",
-        "description": "Carbon monoxide is a colorless, odorless gas produced by incomplete combustion of fuels. It is dangerous because it can bind with hemoglobin in the blood, leading to oxygen deprivation. Symptoms of CO poisoning include headaches, dizziness, weakness, and, in extreme cases, can be fatal. People with heart and respiratory diseases are particularly vulnerable to CO's negative effects."
+        "description": "Carbon monoxide, a colorless and odorless gas produced by incomplete fuel combustion, is dangerous because it binds with hemoglobin in the blood, causing oxygen deprivation. Symptoms of CO poisoning include headache, dizziness, weakness, and, in extreme cases, can be fatal. People with heart and respiratory diseases are especially vulnerable to CO’s adverse effects."
     },
     "settingsTitle": "Settings",
     "settings": {
-        "languageTitle": "Language",
-        "polishLanguage": "Polish",
-        "englishLanguage": "English",
-        "languageSearchPlaceholder": "Search language",
-        "unitsTitle": "Measurement Units",
-        "dataTitle": "Clear all data",
-        "infoTitle": "App Information",
-        "nameTitle": "Username"
-    }
+        "language": {
+            "languageTitle": "Language",
+            "polishLanguage": "Polish",
+            "englishLanguage": "English",
+            "languageSearchPlaceholder": "Search language"
+        },
+        "units": {
+            "unitsTitle": "Measurement Units",
+            "temperature": "Temperature",
+            "speed": "Speed",
+            "celsius": "Celsius",
+            "fahrenheit": "Fahrenheit"
+        },
+        "data": {
+            "dataTitle": "Clear All Data",
+            "clearDataConfirmation": "Are you sure you want to delete all data?",
+            "clearDataWarning": "This action will delete all user data and reset app settings. It cannot be undone.",
+            "cancel": "Cancel",
+            "confirm": "Confirm"
+        },
+        "name": {
+            "nameTitle": "Username",
+            "nameInputPlaceholder": "Enter username"
+        },
+        "info": {
+            "infoTitle": "App Information",
+            "authorTitle": "Authors",
+            "authorName": "Dawid Piela, Maciej Wardach",
+            "technologyTitle": "Technologies",
+            "technologyDetails": "The app uses React Native for its user interface. With the i18next library, the app supports multiple languages, enhancing its accessibility on the global market. AsyncStorage ensures secure and efficient local data storage, allowing users to access personalized settings.",
+            "versionTitle": "Version",
+            "versionNumber": "1.0.0",
+            "descriptionTitle": "Description",
+            "descriptionText": "Created for the Hack Heroes 2024 contest, this advanced app allows users to monitor air quality worldwide. Users can check pollution levels and environmental conditions in any location, no matter where they are. The app supports multiple languages, making it accessible to users from diverse countries and cultures.",
+            "secondDescriptionText": "Designed with safety and timeliness in mind, the app regularly retrieves data from reliable sources to provide the most accurate information. It also ensures a high standard of user privacy protection. This is a perfect tool for health- and environment-conscious individuals who want to stay aware of the air quality around them and in other regions worldwide."
+        }
+    },
+    "limitTitle": "Location Limit Reached",
+    "limitText": "Cannot add more locations. Please delete one saved location to add a new one."
 }

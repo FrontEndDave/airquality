@@ -8,6 +8,7 @@ export const SMOG_BACKGROUND = {
     3: "https://images.unsplash.com/photo-1611473253612-810bf2a2c3f0?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     4: "https://images.unsplash.com/photo-1522159773307-1976d1531738?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     5: "https://images.unsplash.com/photo-1679674565030-231527d6d773?q=80&w=2058&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    6: "https://images.unsplash.com/photo-1679674565030-231527d6d773?q=80&w=2058&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 };
 
 export const SMOG_GRADIENT = {
@@ -15,7 +16,8 @@ export const SMOG_GRADIENT = {
     2: ["rgba(9,18,28,0.35)", "rgba(155,155,155,0.3)"],
     3: ["rgba(73,73,73,0.59)", "rgba(222,222,222,0.25)"],
     4: ["rgba(39,38,38,0.69)", "rgba(173,173,173,0.5)"],
-    5: ["rgba(9,18,28,0.49)", "rgba(175,175,175,0.51)"],
+    5: ["rgba(9,18,28,0.29)", "rgba(175,175,175,0.21)"],
+    6: ["rgba(9,18,28,0.49)", "rgba(175,175,175,0.51)"],
 };
 
 export const WEATHER_BACKGROUNDS = {
@@ -92,17 +94,17 @@ export const WEATHER_BACKGROUNDS = {
     // 1150: Patchy light drizzle
     1150: {
         day: "", // Dzień - Przelotny lekki deszcz
-        night: "", // Noc - Przelotny lekki deszcz
+        night: "https://i.imgur.com/bxc2wbN.png", // Noc - Przelotny lekki deszcz
     },
     // 1153: Light drizzle
     1153: {
         day: "", // Dzień - Lekki deszcz
-        night: "", // Noc - Lekki deszcz
+        night: "https://i.imgur.com/bxc2wbN.png", // Noc - Lekki deszcz
     },
     // 1168: Freezing drizzle
     1168: {
         day: "", // Dzień - Mroźny deszcz
-        night: "", // Noc - Mroźny deszcz
+        night: "https://i.imgur.com/bxc2wbN.png", // Noc - Mroźny deszcz
     },
     // 1171: Heavy freezing drizzle
     1171: {
@@ -112,22 +114,22 @@ export const WEATHER_BACKGROUNDS = {
     // 1180: Patchy light rain
     1180: {
         day: "", // Dzień - Przelotny lekki deszcz
-        night: "", // Noc - Przelotny lekki deszcz
+        night: "https://i.imgur.com/bxc2wbN.png", // Noc - Przelotny lekki deszcz
     },
     // 1183: Light rain
     1183: {
         day: "", // Dzień - Lekki deszcz
-        night: "", // Noc - Lekki deszcz
+        night: "https://i.imgur.com/bxc2wbN.png", // Noc - Lekki deszcz
     },
     // 1186: Moderate rain at times
     1186: {
         day: "", // Dzień - Umiarkowany deszcz
-        night: "", // Noc - Umiarkowany deszcz
+        night: "https://i.imgur.com/bxc2wbN.png", // Noc - Umiarkowany deszcz
     },
     // 1189: Moderate rain
     1189: {
         day: "", // Dzień - Umiarkowany deszcz
-        night: "", // Noc - Umiarkowany deszcz
+        night: "https://i.imgur.com/bxc2wbN.png", // Noc - Umiarkowany deszcz
     },
     // 1192: Heavy rain at times
     1192: {
@@ -142,12 +144,12 @@ export const WEATHER_BACKGROUNDS = {
     // 1198: Light freezing rain
     1198: {
         day: "", // Dzień - Lekki deszcz mroźny
-        night: "", // Noc - Lekki deszcz mroźny
+        night: "https://i.imgur.com/bxc2wbN.png", // Noc - Lekki deszcz mroźny
     },
     // 1201: Moderate or heavy freezing rain
     1201: {
         day: "", // Dzień - Umiarkowany lub intensywny deszcz mroźny
-        night: "", // Noc - Umiarkowany lub intensywny deszcz mroźny
+        night: "https://i.imgur.com/bxc2wbN.png", // Noc - Umiarkowany lub intensywny deszcz mroźny
     },
     // 1204: Light sleet
     1204: {
@@ -252,12 +254,12 @@ export const WEATHER_BACKGROUNDS = {
     // 1279: Patchy rain or snow showers
     1279: {
         day: "https://i.imgur.com/5unUKS1.jpeg", // Dzień - Przelotne deszcz lub śnieg
-        night: "", // Noc - Przelotne deszcz lub śnieg
+        night: "https://i.imgur.com/bxc2wbN.png", // Noc - Przelotne deszcz lub śnieg
     },
     // 1282: Rain or snow showers
     1282: {
         day: "https://i.imgur.com/5unUKS1.jpeg", // Dzień - Deszcz lub śnieg
-        night: "", // Noc - Deszcz lub śnieg
+        night: "https://i.imgur.com/bxc2wbN.png", // Noc - Deszcz lub śnieg
     },
 };
 
@@ -266,8 +268,8 @@ export const APP = {
     MAIN: "MainScreen",
     HOME: "HomeScreen",
     DETAILS: "PlaceDetailsScreen",
+    SAVED: "SavedLocationsScreen",
     SETTINGS: "SettingsScreen",
-    AR: "ARScreen",
     SEARCH: "SearchScreen",
     SETTINGS_LANGUAGE: "SettingsLanguageScreen",
     SETTINGS_UNITS: "SettingsUnitsScreen",

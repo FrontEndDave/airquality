@@ -9,16 +9,16 @@ import CurrentLocationCard from "./CurrentLocationCard";
 const CurrentLocation = () => {
     const { t } = useTranslation();
     const { address } = useContext(LocationContext);
-    const { weather } = useContext(WeatherContext);
+    const { currentLocationWeather } = useContext(WeatherContext);
 
     return (
-        <View style={{ marginTop: 40, paddingHorizontal: 25, paddingBottom: 50 }}>
+        <View style={{ marginTop: 40, paddingHorizontal: 25, paddingBottom: 150 }}>
             <View style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between", paddingBottom: 15 }}>
                 <Text style={{ fontFamily: "Medium", fontSize: 20 }}>{t("currentLocation")}</Text>
             </View>
             <CurrentLocationCard
                 address={address}
-                weather={weather}
+                weather={currentLocationWeather}
             />
         </View>
     );

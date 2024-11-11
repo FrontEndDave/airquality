@@ -23,9 +23,7 @@ TaskManager.defineTask(BACKGROUND_FETCH_TASK, async (taskData) => {
                 trigger: null,
             });
         }
-    } catch (error) {
-        console.error("Błąd przy pobieraniu danych AQI:", error);
-    }
+    } catch (error) {}
 
     return BackgroundFetch.BackgroundFetchResult.NewData;
 });

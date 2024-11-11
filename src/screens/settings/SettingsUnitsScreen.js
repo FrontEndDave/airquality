@@ -53,8 +53,6 @@ const SettingsUnitsScreen = () => {
     const { t } = useTranslation();
     const { units } = useContext(WeatherContext);
 
-    console.log(units);
-
     return (
         <View style={{ backgroundColor: "#F3F3F3", width: "100%", paddingHorizontal: 25 }}>
             <StatusBar barStyle='dark' />

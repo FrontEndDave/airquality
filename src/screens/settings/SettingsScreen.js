@@ -8,6 +8,7 @@ import InfoSettings from "../../components/settings/Info";
 import LanguageSettings from "../../components/settings/Language";
 import NameSettings from "../../components/settings/Name";
 import UnitsSettings from "../../components/settings/Units";
+import Footer from "../../components/common/Footer";
 
 const SettingsScreen = () => {
     return (
@@ -15,13 +16,14 @@ const SettingsScreen = () => {
             <StatusBar barStyle='dark' />
             <Header />
             <View style={{ backgroundColor: "#F3F3F3", width: "100%", paddingHorizontal: 25 }}>
-                <Hero />
+                <Hero showBackIcon={false} />
                 <LanguageSettings />
                 <NameSettings />
                 <UnitsSettings />
                 <DataSettings />
                 <InfoSettings />
             </View>
+            <Footer active='settings' />
         </>
     );
 };

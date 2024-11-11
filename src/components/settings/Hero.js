@@ -9,22 +9,24 @@ import CameraIcon from "../../assets/svg/camera";
 
 import BackIcon from "../../assets/svg/backIcon";
 
-const Hero = ({ text }) => {
+const Hero = ({ text, showBackIcon }) => {
     const { t } = useTranslation();
     const navigation = useNavigation();
 
     return (
         <View style={{ width: "100%" }}>
             <View style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "row", marginTop: 10, paddingBottom: 10 }}>
-                <TouchableOpacity
-                    onPress={() => navigation.goBack()}
-                    style={{ position: "absolute", top: 0, left: 0, zIndex: 999 }}>
-                    <BackIcon
-                        color='#000'
-                        width={30}
-                        height={30}
-                    />
-                </TouchableOpacity>
+                {showBackIcon !== false ? (
+                    <TouchableOpacity
+                        onPress={() => navigation.goBack()}
+                        style={{ position: "absolute", top: 0, left: 0, zIndex: 999 }}>
+                        <BackIcon
+                            color='#000'
+                            width={30}
+                            height={30}
+                        />
+                    </TouchableOpacity>
+                ) : null}
                 <View style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
                     <Text style={{ fontFamily: "SemiBold", fontSize: 24, paddingHorizontal: 50, textAlign: "center" }}>{text ? text : t("settingsTitle")}</Text>
                 </View>

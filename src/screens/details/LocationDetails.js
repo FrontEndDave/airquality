@@ -1,8 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useContext, useEffect } from "react";
-import { RefreshControl, ScrollView, View } from "react-native";
+import { RefreshControl, ScrollView } from "react-native";
 
-import Header from "../../components/common/Header";
 import Hero from "../../components/details/Hero";
 import LocationContext from "../../context/LocationContext";
 import WeatherContext from "../../context/WeatherContext";
@@ -14,11 +13,11 @@ import PollutantCard from "../../components/details/PollutantCard";
 import AirQualityForecast from "../../components/details/AirQualityForecast";
 
 const LocationDetailsScreen = (props) => {
-    const { address, coordinates } = props.route.params;
+    const { address, country, coordinates } = props.route.params;
 
     const [refreshing, setRefreshing] = React.useState(false);
     const { currentLocation } = useContext(LocationContext);
-    const { getWeather } = useContext(WeatherContext);
+    const { weather, getWeather } = useContext(WeatherContext);
 
     useEffect(() => {
         if (coordinates) {
@@ -26,26 +25,30 @@ const LocationDetailsScreen = (props) => {
         } else if (currentLocation) {
             getWeather(currentLocation.latitude, currentLocation.longitude);
         }
-    }, []);
+    }, [coordinates, currentLocation, getWeather]);
 
-    const onRefresh = React.useCallback(() => {
+    const onRefresh = React.useCallback(async () => {
         setRefreshing(true);
-        setTimeout(() => {
-            setRefreshing(false);
+        try {
             if (coordinates) {
-                getWeather(coordinates.latitude, coordinates.longitude);
+                await getWeather(coordinates.latitude, coordinates.longitude);
             } else if (currentLocation) {
-                getWeather(currentLocation.latitude, currentLocation.longitude);
+                await getWeather(currentLocation.latitude, currentLocation.longitude);
             }
-        }, 2000);
-    }, []);
+        } finally {
+            setRefreshing(false);
+        }
+    }, [coordinates, currentLocation, getWeather]);
 
     return (
         <>
             <StatusBar barStyle='dark' />
             <Hero
-                name={props.route.params.address ? props.route.params.address : props.route.params.place}
-                saveIcon={props.route.params.address ? true : false}
+                name={address ? address : props.route.params.place}
+                country={country ? country : null}
+                coordinates={coordinates ? coordinates : null}
+                saveIcon={address ? true : false}
+                addIcon={props.route.params.addIcon ? props.route.params.addIcon : false}
             />
             <ScrollView
                 showsVerticalScrollIndicator={false}

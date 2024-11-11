@@ -9,7 +9,10 @@ const HealthTips = () => {
     const { weather } = useContext(WeatherContext);
     const { t } = useTranslation();
     const airQualityIndex = weather.current.air_quality["us-epa-index"];
-    const tipsForCurrentAQI = t(`healthTips.${airQualityIndex - 1}.tips`, { returnObjects: true });
+
+    const tipsForCurrentAQI = t(`healthTips.${airQualityIndex - 1}.tips`, { returnObjects: true }) || [];
+
+    if (!Array.isArray(tipsForCurrentAQI) || tipsForCurrentAQI.length === 0) return null;
 
     return (
         <View style={{ paddingHorizontal: 25, width: "100%" }}>

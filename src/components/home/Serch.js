@@ -12,7 +12,7 @@ const SearchInput = () => {
     const { t } = useTranslation();
 
     const handlePress = () => {
-        navigation.navigate(APP.SEARCH);
+        navigation.navigate(APP.SEARCH, { backIcon: true });
     };
 
     return (

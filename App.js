@@ -9,6 +9,7 @@ import AppStackNavigator from "./src/navigation/AppNavigator";
 
 import LocationContext, { LocationProvider } from "./src/context/LocationContext";
 import { WeatherProvider } from "./src/context/WeatherContext";
+import { SavedLocationsProvider } from "./src/context/FavoriteLocations";
 
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
@@ -33,18 +34,12 @@ function App() {
 
     useEffect(() => {
         (async () => {
-            let { status } = await Location.requestForegroundPermissionsAsync();
-            if (status !== "granted") {
-                return;
-            }
+            await Location.requestForegroundPermissionsAsync();
         })();
         (async () => {
             let { status } = await Notifications.getPermissionsAsync();
             if (status !== "granted") {
-                const { status: newStatus } = await Notifications.requestPermissionsAsync();
-                if (newStatus !== "granted") {
-                    return;
-                }
+                await Notifications.requestPermissionsAsync();
             }
         })();
 
@@ -63,14 +58,16 @@ function App() {
         <LocationProvider>
             <WeatherProvider>
                 <NameProvider>
-                    <NavigationContainer>
-                        <GestureHandlerRootView style={{ flex: 1 }}>
-                            <BottomSheetModalProvider>
-                                <BackgroundFetchComponent />
-                                <AppStackNavigator />
-                            </BottomSheetModalProvider>
-                        </GestureHandlerRootView>
-                    </NavigationContainer>
+                    <SavedLocationsProvider>
+                        <NavigationContainer>
+                            <GestureHandlerRootView style={{ flex: 1 }}>
+                                <BottomSheetModalProvider>
+                                    <BackgroundFetchComponent />
+                                    <AppStackNavigator />
+                                </BottomSheetModalProvider>
+                            </GestureHandlerRootView>
+                        </NavigationContainer>
+                    </SavedLocationsProvider>
                 </NameProvider>
             </WeatherProvider>
         </LocationProvider>
