@@ -1,28 +1,73 @@
-# React Native AirQuality Mobile App
+# AirQuality
 
-> This is a straightforward template for creating a web application using React and TypeScript.  <br> It incorporates Vite as the build tool for rapid development and utilizes Tailwind CSS for styling. <br> Additionally, it includes basic routing functionality for navigating between pages.
+AirQuality to aplikacja mobilna do monitorowania jakości powietrza na całym świecie. Dzięki prostemu interfejsowi użytkownik może dodawać lokalizacje, które chce śledzić, a aplikacja udostępnia dane w dwóch językach, co sprawia, że jest dostępna dla użytkowników na całym świecie.
 
-### Instrukcja instalacji aplikacji React Native Expo
-- Zainstaluj Node.js, najlepiej wersje LTS (https://nodejs.org/en), nasępnie upewnij się że Node.js jest zainstalowany wpisując `node -v`
-- Zainstaluj Expo CLI za pomocą polecenia `npm install -g expo-cli`
-- Sklonuj respozytorium za pomocą polecenia `git clone https://github.com/FrontEndDave/AirQuality`
-- Przejdź do folderu z projektem `cd <NAZWA_FOLDERU>`
-- Zainstaluj potrzebne zależności za pomoca polecnia `npm i`
-- 
+## Instrukcja instalacji
 
-### Features
-- **Type Safety**: Static typing with TypeScript.
-- **Fast Development**: Quick setup with Vite.
-- **Routing**: Seamless navigation with React Router.
-- **Clean Structure**: Organized project layout.
-- **Customizable**: Easy to modify and extend.
+Aby zainstalować i uruchomić aplikację lokalnie, wykonaj poniższe kroki:
 
-### Tech Stack:
+### Wymagania wstępne
 
-<p align="left">
-  <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=react,javascript" />
-  </a>
-</p>
+- Zainstalowany [Node.js](https://nodejs.org/en) (zalecana wersja LTS)
+- Git
 
+### Kroki instalacji
 
+1. **Zainstaluj Node.js**
+   - Pobierz i zainstaluj wersję LTS z [https://nodejs.org/en](https://nodejs.org/en).
+   - Upewnij się, że Node.js jest zainstalowany, wpisując w terminalu:
+     ```bash
+     node -v
+     ```
+
+2. **Sklonuj repozytorium**
+   - W terminalu wpisz:
+     ```bash
+     git clone https://github.com/FrontEndDave/AirQuality
+     ```
+
+3. **Przejdź do katalogu projektu**
+   - Wpisz polecenie:
+     ```bash
+     cd <NAZWA_FOLDERU>
+     ```
+
+4. **Zainstaluj zależności**
+   - W katalogu projektu wpisz:
+     ```bash
+     npm install
+     ```
+
+5. **Uruchomienie aplikacji**
+   - Wpisz polecenie:
+     ```bash
+     npx expo start
+     ```
+   - Następnie możesz uruchomić aplikację:
+     - Na urządzeniu z iOS: pobierz aplikację **Expo Go** z App Store, zeskanuj kod QR wyświetlony w terminalu.
+     - W symulatorze iOS: kliknij `i` w terminalu.
+
+6. **Budowanie aplikacji na iOS za pomocą EAS Build**
+   - Najpierw zainstaluj EAS CLI:
+     ```bash
+     npm install -g eas-cli
+     ```
+   - Zaloguj się na swoje konto Expo:
+     ```bash
+     eas login
+     ```
+     Wprowadź dane logowania przesłane w formularzu.
+   - Aby stworzyć build na iOS, wpisz:
+     ```bash
+     eas build --platform ios
+     ```
+     **Uwaga**: Aby zbudować aplikację na iOS, wymagane jest konto Apple Developer z aktywną subskrypcją.
+
+## Technologie
+
+- **React Native**
+- **Expo**
+  
+## Licencja
+
+Ten projekt jest licencjonowany na warunkach licencji MIT.
