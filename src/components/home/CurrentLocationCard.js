@@ -6,12 +6,12 @@ import { useTranslation } from "react-i18next";
 import { Animated, ImageBackground, Text, TouchableOpacity, View } from "react-native";
 
 import { APP, WEATHER_BACKGROUNDS } from "../../constants";
+
 import WeatherContext from "../../context/WeatherContext";
 import SkeletonLoader from "../common/SkeletonPlaceholder";
 
-const CurrentLocationCard = ({ address, weather }) => {
-    if (!weather) return;
-    const { units } = useContext(WeatherContext);
+const CurrentLocationCard = ({ address }) => {
+    const { currentLocationWeather, units } = useContext(WeatherContext);
     const { t } = useTranslation();
     const navigation = useNavigation();
     const [time, setTime] = useState();
@@ -32,16 +32,16 @@ const CurrentLocationCard = ({ address, weather }) => {
         navigation.navigate(APP.DETAILS, { place });
     };
 
-    const isDayTime = weather.current.is_day === 1;
-    const backgroundImage = isDayTime ? WEATHER_BACKGROUNDS[weather.current.condition.code]?.day : WEATHER_BACKGROUNDS[weather.current.condition.code]?.night;
+    const isDayTime = currentLocationWeather.current.is_day === 1;
+    const backgroundImage = isDayTime ? WEATHER_BACKGROUNDS[currentLocationWeather.current.condition.code]?.day : WEATHER_BACKGROUNDS[currentLocationWeather.current.condition.code]?.night;
 
-    const maxTempC = `${weather.forecast.forecastday[0].day.maxtemp_c.toFixed(0)}°C`;
-    const minTempC = `${weather.forecast.forecastday[0].day.mintemp_c.toFixed(0)}°C`;
-    const currentTempC = `${weather.current.temp_c.toFixed(0)}°`;
+    const maxTempC = `${currentLocationWeather.forecast.forecastday[0].day.maxtemp_c.toFixed(0)}°C`;
+    const minTempC = `${currentLocationWeather.forecast.forecastday[0].day.mintemp_c.toFixed(0)}°C`;
+    const currentTempC = `${currentLocationWeather.current.temp_c.toFixed(0)}°`;
 
-    const maxTempF = `${weather.forecast.forecastday[0].day.maxtemp_f.toFixed(0)}°F`;
-    const minTempF = `${weather.forecast.forecastday[0].day.mintemp_f.toFixed(0)}°F`;
-    const currentTempF = `${weather.current.temp_f.toFixed(0)}°F`;
+    const maxTempF = `${currentLocationWeather.forecast.forecastday[0].day.maxtemp_f.toFixed(0)}°F`;
+    const minTempF = `${currentLocationWeather.forecast.forecastday[0].day.mintemp_f.toFixed(0)}°F`;
+    const currentTempF = `${currentLocationWeather.current.temp_f.toFixed(0)}°F`;
 
     const opacity = useRef(new Animated.Value(0)).current;
 
@@ -86,7 +86,7 @@ const CurrentLocationCard = ({ address, weather }) => {
                             </View>
                             <View style={{ display: "flex", flexDirection: "row", alignItems: "flex-start", gap: 10 }}>
                                 <Text style={{ fontFamily: "Medium", fontSize: 15, color: "#fff" }}>{time}</Text>
-                                <Text style={{ fontFamily: "Medium", fontSize: 15, color: "#fff" }}>AQI {weather.current.air_quality["us-epa-index"]}</Text>
+                                <Text style={{ fontFamily: "Medium", fontSize: 15, color: "#fff" }}>AQI {currentLocationWeather.current.air_quality["us-epa-index"]}</Text>
                             </View>
                         </View>
                         <View style={{ display: "flex", flexDirection: "col", justifyContent: "space-between", marginRight: 15, alignItems: "flex-end", height: "100%", width: "100%", flex: 1 }}>

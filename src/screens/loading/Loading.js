@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
-import Animated, { Easing, runOnJS, useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated";
+import { Text, View } from "react-native";
+import Animated, { Easing, runOnJS, useAnimatedStyle, useSharedValue, withTiming, interpolateColor } from "react-native-reanimated";
 
 import AnimatedLogo from "../../assets/svg/animatedLogo";
 import { APP } from "../../constants";
@@ -26,7 +26,7 @@ const LoadingScreen = ({ navigation }) => {
 
     const scale = useSharedValue(1);
     const opacity = useSharedValue(1);
-    const fillColor = useSharedValue("transparent");
+    const progress = useSharedValue(0);
 
     const navigateToLogin = () => {
         navigation.replace(APP.HOME);
@@ -34,8 +34,8 @@ const LoadingScreen = ({ navigation }) => {
 
     useEffect(() => {
         if (isWeatherLoaded) {
-            fillColor.value = withTiming(
-                "#2AB8A0",
+            progress.value = withTiming(
+                1,
                 {
                     duration: 1500,
                     easing: Easing.linear,
@@ -65,7 +65,7 @@ const LoadingScreen = ({ navigation }) => {
         return {
             transform: [{ scale: scale.value }],
             opacity: opacity.value,
-            backgroundColor: fillColor.value,
+            backgroundColor: interpolateColor(progress.value, [0, 1], ["transparent", "#2AB8A0"]),
             position: "absolute",
             top: 0,
             left: 0,
@@ -84,35 +84,17 @@ const LoadingScreen = ({ navigation }) => {
     });
 
     return (
-        <View style={styles.container}>
+        <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "#2AB8A0" }}>
             <Animated.View style={[animatedStyle]}>
                 <Animated.View style={[animatedInnerContainerStyle]}>
                     <AnimatedLogo />
-                    <View style={styles.versionContainer}>
-                        <Text style={styles.versionText}>Version 1.0.0</Text>
+                    <View style={{ position: "absolute", bottom: 75 }}>
+                        <Text style={{ fontFamily: "regular", color: "#fff", fontSize: 17 }}>Version 1.0.0</Text>
                     </View>
                 </Animated.View>
             </Animated.View>
         </View>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "#2AB8A0",
-    },
-    versionContainer: {
-        position: "absolute",
-        bottom: 75,
-    },
-    versionText: {
-        fontFamily: "regular",
-        color: "#fff",
-        fontSize: 17,
-    },
-});
 
 export default LoadingScreen;

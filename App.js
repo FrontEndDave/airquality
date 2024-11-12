@@ -8,14 +8,13 @@ import { i18next } from "./src/services/i18next";
 
 import AppStackNavigator from "./src/navigation/AppNavigator";
 
-import LocationContext, { LocationProvider } from "./src/context/LocationContext";
+import { LocationProvider } from "./src/context/LocationContext";
 import { WeatherProvider } from "./src/context/WeatherContext";
 import { SavedLocationsProvider } from "./src/context/FavoriteLocations";
 import { NameProvider } from "./src/context/NameContext";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import { registerBackgroundFetchAsync } from "./src/services/backgroundFetch";
 import "./src/services/i18next";
 
 function App() {
@@ -57,7 +56,6 @@ function App() {
                         <NavigationContainer>
                             <GestureHandlerRootView style={{ flex: 1 }}>
                                 <BottomSheetModalProvider>
-                                    <BackgroundFetchComponent />
                                     <AppStackNavigator />
                                 </BottomSheetModalProvider>
                             </GestureHandlerRootView>
@@ -68,22 +66,5 @@ function App() {
         </LocationProvider>
     );
 }
-
-const BackgroundFetchComponent = () => {
-    const { currentLocation } = React.useContext(LocationContext);
-
-    React.useEffect(() => {
-        const registerBackgroundTask = async () => {
-            if (currentLocation) {
-                const { latitude, longitude } = currentLocation;
-                await registerBackgroundFetchAsync(latitude, longitude);
-            }
-        };
-
-        registerBackgroundTask();
-    }, [currentLocation]);
-
-    return null;
-};
 
 export default App;

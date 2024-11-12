@@ -2,6 +2,7 @@
     "expo": {
         "name": "qirquality",
         "slug": "airquality",
+        "newArchEnabled": true,
         "version": "1.0.0",
         "orientation": "portrait",
         "platforms": ["ios", "android"],
@@ -48,7 +49,9 @@
                     "isIosBackgroundLocationEnabled": true,
                     "locationAlwaysPermission": "Allow AirQuality to use your location in the background."
                 }
-            ]
+            ],
+            "expo-asset",
+            "expo-font"
         ]
     }
 }

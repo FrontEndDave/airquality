@@ -1,8 +1,6 @@
 import React, { useContext, useState } from "react";
-import { ScrollView, StatusBar, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { StatusBar, TextInput, View } from "react-native";
 import { useTranslation } from "react-i18next";
-import i18next from "i18next";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import Header from "../../components/common/Header";
 import Hero from "../../components/settings/Hero";
