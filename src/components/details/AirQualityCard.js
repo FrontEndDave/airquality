@@ -10,13 +10,14 @@ import SkeletonLoader from "../common/SkeletonPlaceholder";
 
 const AirQualityCard = () => {
     const { weather } = useContext(WeatherContext);
+    if (!weather) return;
     const [isLoading, setIsLoading] = useState(true);
     const { t } = useTranslation();
 
     const AQIModalRef = useRef(null);
     const snapPoints = ["70%"];
 
-    const airQualityIndex = weather.current.air_quality["us-epa-index"];
+    const airQualityIndex = weather?.current?.air_quality["us-epa-index"];
 
     const AQIDotPosition = ((airQualityIndex - 1) / 5) * 100;
 
@@ -33,9 +34,27 @@ const AirQualityCard = () => {
         }).start();
     };
 
+    const qualityTextFilter = {
+        1: t("aqi.good"),
+        2: t("aqi.moderate"),
+        3: t("aqi.sensitive"),
+        4: t("aqi.unhealthy"),
+        5: t("aqi.veryUnhealthy"),
+        6: t("aqi.hazardous"),
+    };
+
+    const airQualitySummaryColor = {
+        1: "#00b300",
+        2: "#ffff33",
+        3: "#ffa31a",
+        4: "#ff3333",
+        5: "#660000",
+        6: "#4d004d",
+    };
+
     return (
         <View style={{ width: "100%", paddingHorizontal: 25 }}>
-            <Text style={{ fontFamily: "Medium", fontSize: 20, marginTop: 30 }}>{t("airQualityTitle")}</Text>
+            <Text style={{ fontFamily: "Medium", fontSize: 21, marginTop: 30, textAlign: "start" }}>{t("airQualityTitle")}</Text>
             <TouchableOpacity
                 disabled={isLoading}
                 onPress={openModal}>

@@ -10,13 +10,12 @@ import WeatherContext from "../../context/WeatherContext";
 
 const LoadingScreen = ({ navigation }) => {
     const { currentLocation } = useContext(LocationContext);
-    const { getWeather, getCurrentLocationWeather } = useContext(WeatherContext);
+    const { getCurrentLocationWeather } = useContext(WeatherContext);
 
     const [isWeatherLoaded, setIsWeatherLoaded] = useState(false);
 
     useEffect(() => {
         if (currentLocation) {
-            getWeather(currentLocation.latitude, currentLocation.longitude);
             getCurrentLocationWeather(currentLocation.latitude, currentLocation.longitude).then(() => {
                 setIsWeatherLoaded(true);
             });

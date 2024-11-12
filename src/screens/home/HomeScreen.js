@@ -14,7 +14,7 @@ import Footer from "../../components/common/Footer";
 const HomeScreen = () => {
     const [refreshing, setRefreshing] = React.useState(false);
     const { currentLocation } = useContext(LocationContext);
-    const { getWeather, getCurrentLocationWeather } = useContext(WeatherContext);
+    const { getCurrentLocationWeather } = useContext(WeatherContext);
 
     const onRefresh = React.useCallback(() => {
         setRefreshing(true);
@@ -22,7 +22,6 @@ const HomeScreen = () => {
             setRefreshing(false);
             if (currentLocation) {
                 getCurrentLocationWeather(currentLocation.latitude, currentLocation.longitude);
-                getWeather(currentLocation.latitude, currentLocation.longitude);
             }
         }, 2000);
     }, []);

@@ -18,11 +18,11 @@ const Hero = ({ name, country, coordinates, saveIcon, addIcon }) => {
     const { addLocation, removeLocation } = useContext(SavedLocationsContext);
     const { weather, units } = useContext(WeatherContext);
 
-    const currentTempC = `${weather.current.temp_c.toFixed(0)}°C`;
-    const feelLikeTempC = `${weather.current.feelslike_c.toFixed(0)}°C`;
+    const currentTempC = `${weather?.current?.temp_c?.toFixed(0)}°C`;
+    const feelLikeTempC = `${weather?.current?.feelslike_c?.toFixed(0)}°C`;
 
-    const currentTempF = `${weather.current.temp_f.toFixed(0)}°F`;
-    const feelLikeTempF = `${weather.current.feelslike_f.toFixed(0)}°F`;
+    const currentTempF = `${weather?.current?.temp_f?.toFixed(0)}°F`;
+    const feelLikeTempF = `${weather?.current?.feelslike_f?.toFixed(0)}°F`;
 
     const handleSaveLocation = async () => {
         addLocation(name, country, coordinates);

@@ -74,6 +74,7 @@
     ],
     "aqi": {
         "title": "Indeks Jakości Powietrza",
+        "standard": "Norma",
         "description": "Indeks jakości powietrza (AQI) to wskaźnik, który mierzy zanieczyszczenie powietrza, oceniając jego wpływ na zdrowie ludzi w oparciu o stężenia szkodliwych substancji, takich jak PM2.5, PM10, dwutlenek azotu (NO2) czy ozon (O3). Wartości AQI są prezentowane w formie skali, która informuje o poziomie zagrożenia, co pozwala użytkownikom na podejmowanie świadomych decyzji dotyczących aktywności na świeżym powietrzu.",
         "alternative": "Kategorie jakości powietrza",
         "good": "Dobra",
@@ -85,27 +86,69 @@
     },
     "pm10": {
         "title": "Pył zawieszony PM10",
-        "description": "PM10 to cząstki o średnicy poniżej 10 mikrometrów, które mogą osadzać się w górnych drogach oddechowych i oskrzelach, powodując kaszel, duszność i trudności z oddychaniem, zwłaszcza podczas wysiłku. Zwiększają ryzyko infekcji dróg oddechowych oraz mogą zaostrzać objawy alergii, takich jak astma czy zapalenie spojówek."
+        "about": "Pył PM10 to cząstki o średnicy do 10 mikrometrów, które mogą wnikać do dróg oddechowych. Powstają w wyniku działalności przemysłowej, transportu, budownictwa, oraz naturalnych źródeł, jak pyłki roślinne i erozja gleby.",
+        "healthEffects": "Wpływ na zdrowie",
+        "healthEffectsText": "PM10 może podrażniać drogi oddechowe, nasilać astmę, alergie i zwiększać ryzyko infekcji płucnych. Jest szczególnie niebezpieczny dla dzieci, osób starszych oraz osób z chorobami układu oddechowego.",
+        "occurrence": "Występowanie",
+        "occurrenceText": "PM10 występuje w miastach o dużym ruchu drogowym, w pobliżu budów i przemysłu, oraz w rejonach suchych, gdzie naturalne źródła pyłów są bardziej aktywne.",
+        "standard": "Norma Światowej Organizacji Zdrowia (WHO)",
+        "standardText": "Wartość normy PM10: 50 µg/m³",
+        "time": "Okres uśredniania: 24 godziny"
     },
     "pm2_5": {
-        "title": "Pył zawieszony PM 2.5",
-        "description": "Pyły drobne PM2.5, o średnicy poniżej 2,5 mikrometra, mogą przenikać do dolnych dróg oddechowych i krwiobiegu, co przy dłuższej ekspozycji zwiększa ryzyko chorób serca, takich jak nadciśnienie i zawał, a także raka płuc. Pyły te, podobnie jak PM10, mogą powodować kaszel, duszność oraz trudności z oddychaniem, zwłaszcza podczas wysiłku fizycznego."
+        "title": "Pył zawieszony PM2.5",
+        "about": "Pył PM2.5 to drobne cząstki o średnicy poniżej 2,5 mikrometra, powstające głównie w wyniku spalania paliw w transporcie, ogrzewaniu i przemyśle. Z powodu swojego małego rozmiaru, mogą one przenikać głęboko do płuc i krwiobiegu, stanowiąc poważne zagrożenie zdrowotne.",
+        "healthEffects": "Wpływ na zdrowie",
+        "healthEffectsText": "Pył PM2.5 może prowadzić do chorób serca, płuc i nowotworów. Długotrwała ekspozycja, szczególnie wśród dzieci, osób starszych i chorych, zwiększa ryzyko przedwczesnej śmierci.",
+        "occurrence": "Występowanie",
+        "occurrenceText": "PM2.5 występuje głównie w miastach o dużym ruchu drogowym i przemysłowych, oraz w okresie grzewczym, kiedy emisje z pieców i transportu są największe.",
+        "standard": "Norma Światowej Organizacji Zdrowia (WHO)",
+        "standardText": "Wartość normy PM2.5: 25 µg/m³",
+        "time": "Okres uśredniania: 24 godziny"
     },
     "no2": {
         "title": "Dwutlenek azotu (NO2)",
-        "description": "NO2 to gaz powstający głównie podczas spalania paliw, a jego obecność w powietrzu może prowadzić do podrażnienia dróg oddechowych. Długotrwała ekspozycja na ten związek może powodować przewlekłe choroby układu oddechowego, a także zwiększać ryzyko infekcji płuc. NO2 może także zaostrzać objawy astmy oraz negatywnie wpływać na rozwój dzieci."
+        "about": "NO2 to gaz powstający głównie w wyniku spalania paliw kopalnych w pojazdach, elektrowniach i przemyśle. Jest jednym z głównych składników smogu i może tworzyć się także w atmosferze w wyniku reakcji chemicznych.",
+        "healthEffects": "Wpływ na zdrowie",
+        "healthEffectsText": "Dwutlenek azotu może podrażniać drogi oddechowe, nasilając astmę, choroby płuc oraz zwiększając ryzyko infekcji dróg oddechowych. Długotrwałe narażenie na NO2 wiąże się z poważnymi problemami zdrowotnymi, zwłaszcza u dzieci i osób starszych.",
+        "occurrence": "Występowanie",
+        "occurrenceText": "NO2 występuje głównie w miastach, szczególnie w pobliżu dróg o dużym natężeniu ruchu oraz w rejonach przemysłowych, gdzie spala się paliwa kopalne.",
+        "standard": "Norma Światowej Organizacji Zdrowia (WHO)",
+        "standardText": "Wartość normy NO2: 200 µg/m³",
+        "time": "Okres uśredniania: 1 godzina"
     },
     "o3": {
-        "title": "Ozon (O3)",
-        "description": "Ozon to gaz, który w górnych warstwach atmosfery chroni nas przed promieniowaniem UV, ale na poziomie gruntu może być szkodliwy. Wdychanie ozonu może prowadzić do podrażnienia dróg oddechowych, kaszlu oraz trudności w oddychaniu, zwłaszcza u osób z chorobami układu oddechowego. Wysokie stężenia ozonu mogą również obniżać wydolność płuc i wpływać na zdrowie serca."
+        "title": "Ozón (O3)",
+        "about": "Ozon (O3) jest gazem, który naturalnie występuje w atmosferze, ale w warunkach zanieczyszczenia powietrza powstaje w wyniku reakcji chemicznych między zanieczyszczeniami, takimi jak tlenki azotu i lotne związki organiczne.",
+        "healthEffects": "Wpływ na zdrowie",
+        "healthEffectsText": "Ozon może podrażniać drogi oddechowe, powodować kaszel, trudności w oddychaniu oraz nasilać objawy astmy. Długotrwała ekspozycja na ozon zwiększa ryzyko przewlekłych chorób płuc.",
+        "occurrence": "Występowanie",
+        "occurrenceText": "Ozon występuje głównie w miastach o wysokim zanieczyszczeniu powietrza, zwłaszcza latem, kiedy intensywne nasłonecznienie sprzyja jego powstawaniu z innych zanieczyszczeń.",
+        "standard": "Norma Światowej Organizacji Zdrowia (WHO)",
+        "standardText": "Wartość normy O3: 100 µg/m³",
+        "time": "Okres uśredniania: 8 godzin"
     },
     "so2": {
         "title": "Dwutlenek siarki (SO2)",
-        "description": "SO2 to gaz emitowany podczas spalania paliw kopalnych oraz w procesach przemysłowych. Może powodować podrażnienia dróg oddechowych, kaszel, a także zaostrzać objawy astmy i przewlekłej obturacyjnej choroby płuc. Długotrwała ekspozycja na SO2 może prowadzić do rozwoju chorób płuc oraz zwiększać ryzyko wystąpienia chorób serca."
+        "about": "SO2 to gaz powstający głównie podczas spalania węgla, ropy naftowej i innych paliw kopalnych, a także w wyniku działalności przemysłowej, szczególnie w rafineriach i hutach.",
+        "healthEffects": "Wpływ na zdrowie",
+        "healthEffectsText": "Dwutlenek siarki może podrażniać drogi oddechowe, prowadzić do kaszlu, duszności i nasilać objawy astmy. Długotrwałe narażenie na SO2 zwiększa ryzyko chorób płuc i serca.",
+        "occurrence": "Występowanie",
+        "occurrenceText": "SO2 występuje głównie w rejonach przemysłowych, w pobliżu elektrowni węglowych oraz rafinerii, a także w miastach, gdzie spala się paliwa kopalne.",
+        "standard": "Norma Światowej Organizacji Zdrowia (WHO)",
+        "standardText": "Wartość normy SO2: 20 µg/m³",
+        "time": "Okres uśredniania: 24 godziny"
     },
     "co": {
         "title": "Tlenek węgla (CO)",
-        "description": "Tlenek węgla to bezbarwny i bezwonny gaz, który powstaje w wyniku niepełnego spalania paliw. Jest niebezpieczny, ponieważ może łączyć się z hemoglobiną w krwi, co prowadzi do niedotlenienia organizmu. Objawy zatrucia tlenkiem węgla mogą obejmować bóle głowy, zawroty głowy, osłabienie, a w skrajnych przypadkach mogą być śmiertelne. Osoby z chorobami serca oraz układu oddechowego są szczególnie narażone na negatywne skutki działania CO."
+        "about": "CO to bezwonny, bezbarwny gaz powstający podczas niepełnego spalania paliw kopalnych, takich jak węgiel, gaz, ropa naftowa oraz paliwa wykorzystywane w samochodach.",
+        "healthEffects": "Wpływ na zdrowie",
+        "healthEffectsText": "Tlenek węgla ogranicza zdolność krwi do transportowania tlenu, co może prowadzić do zawrotów głowy, osłabienia, a w przypadku wysokiego stężenia – do śmierci. Osoby z chorobami serca, dzieci i osoby starsze są szczególnie narażone.",
+        "occurrence": "Występowanie",
+        "occurrenceText": "CO występuje głównie w miejscach o dużym natężeniu ruchu drogowego, w pobliżu źródeł spalin, takich jak samochody, a także w miejscach, gdzie spalane są paliwa w piecach i kotłach.",
+        "standard": "Norma Światowej Organizacji Zdrowia (WHO)",
+        "standardText": "Wartość normy CO: 10000 µg/m³",
+        "time": "Okres uśredniania: 8 godzin"
     },
     "settingsTitle": "Ustawienia",
     "settings": {

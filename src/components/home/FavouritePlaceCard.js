@@ -12,6 +12,7 @@ const FavoritePlaceCard = ({ name, country, latitude, longitude }) => {
     const navigaiton = useNavigation();
     const [weather, setWeather] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
+    const [time, setTime] = useState();
 
     const getWeather = async (latitude, longitude) => {
         try {
@@ -21,6 +22,21 @@ const FavoritePlaceCard = ({ name, country, latitude, longitude }) => {
             console.error("Błąd podczas pobierania aktualnej pogody:", error);
         }
     };
+
+    useEffect(() => {
+        if (weather?.location?.tz_id) {
+            const interval = setInterval(() => {
+                const currentTime = new Intl.DateTimeFormat("pl-PL", {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    timeZone: weather.location.tz_id,
+                }).format(new Date());
+                setTime(currentTime);
+            }, 1000);
+
+            return () => clearInterval(interval);
+        }
+    }, [weather?.location?.tz_id]);
 
     useEffect(() => {
         getWeather(latitude, longitude);
@@ -76,6 +92,7 @@ const FavoritePlaceCard = ({ name, country, latitude, longitude }) => {
                                     <Text style={{ fontFamily: "SemiBold", fontSize: 28, color: "#fff" }}>{weather ? name : "Brak danych"}</Text>
                                 </View>
                                 <View style={{ display: "flex", flexDirection: "row", alignItems: "flex-start", gap: 10 }}>
+                                    <Text style={{ fontFamily: "Medium", fontSize: 15, color: "#fff" }}>{time}</Text>
                                     <Text style={{ fontFamily: "Medium", fontSize: 15, color: "#fff" }}>AQI {weather ? weather.current.air_quality["us-epa-index"] : "Brak danych"}</Text>
                                 </View>
                             </View>

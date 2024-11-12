@@ -2,11 +2,9 @@ import React, { useState } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import PinIcon from "../../assets/svg/pin";
-import { useTranslation } from "react-i18next";
 
 const PlaceLocation = ({ currentLocation, coordinates }) => {
     if (!currentLocation) return null;
-    const { t } = useTranslation();
 
     const initialRegion = {
         latitude: coordinates ? coordinates.latitude : currentLocation.latitude,
@@ -27,11 +25,19 @@ const PlaceLocation = ({ currentLocation, coordinates }) => {
     };
 
     const handleZoomOut = () => {
+        const maxDelta = 180;
+        const newLatitudeDelta = region.latitudeDelta * 2;
+        const newLongitudeDelta = region.longitudeDelta * 2;
+
+        const updatedLatitudeDelta = newLatitudeDelta > maxDelta ? maxDelta : newLatitudeDelta;
+        const updatedLongitudeDelta = newLongitudeDelta > maxDelta ? maxDelta : newLongitudeDelta;
+
         const newRegion = {
             ...region,
-            latitudeDelta: region.latitudeDelta * 2,
-            longitudeDelta: region.longitudeDelta * 2,
+            latitudeDelta: updatedLatitudeDelta,
+            longitudeDelta: updatedLongitudeDelta,
         };
+
         setRegion(newRegion);
     };
 

@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useContext, useEffect } from "react";
-import { RefreshControl, ScrollView } from "react-native";
+import React, { useContext, useEffect, useState } from "react";
+import { ActivityIndicator, RefreshControl, ScrollView, Text, View } from "react-native";
 
 import Hero from "../../components/details/Hero";
 import LocationContext from "../../context/LocationContext";
@@ -10,22 +10,26 @@ import PlaceLocation from "../../components/details/PlaceLocation";
 import HealthTips from "../../components/details/HealthTips";
 import PMCard from "../../components/details/PMCard";
 import PollutantCard from "../../components/details/PollutantCard";
-import AirQualityForecast from "../../components/details/AirQualityForecast";
 
 const LocationDetailsScreen = (props) => {
     const { address, country, coordinates } = props.route.params;
 
-    const [refreshing, setRefreshing] = React.useState(false);
+    const [refreshing, setRefreshing] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
+
     const { currentLocation } = useContext(LocationContext);
     const { weather, getWeather } = useContext(WeatherContext);
 
     useEffect(() => {
+        setIsLoading(true);
+
         if (coordinates) {
             getWeather(coordinates.latitude, coordinates.longitude);
         } else if (currentLocation) {
             getWeather(currentLocation.latitude, currentLocation.longitude);
         }
-    }, [coordinates, currentLocation, getWeather]);
+        setIsLoading(false);
+    }, [coordinates, currentLocation]);
 
     const onRefresh = React.useCallback(async () => {
         setRefreshing(true);
@@ -38,7 +42,18 @@ const LocationDetailsScreen = (props) => {
         } finally {
             setRefreshing(false);
         }
-    }, [coordinates, currentLocation, getWeather]);
+    }, [coordinates, currentLocation]);
+
+    if (isLoading || !weather) {
+        return (
+            <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+                <ActivityIndicator
+                    size='large'
+                    color='#2AB8A0'
+                />
+            </View>
+        );
+    }
 
     return (
         <>
@@ -63,7 +78,6 @@ const LocationDetailsScreen = (props) => {
                 <PMCard />
                 <PollutantCard />
                 <HealthTips />
-                <AirQualityForecast />
                 <PlaceLocation
                     currentLocation={currentLocation}
                     coordinates={coordinates}

@@ -4,19 +4,19 @@ import * as Location from "expo-location";
 import * as Notifications from "expo-notifications";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, { useEffect, useState } from "react";
+import { i18next } from "./src/services/i18next";
 
 import AppStackNavigator from "./src/navigation/AppNavigator";
 
 import LocationContext, { LocationProvider } from "./src/context/LocationContext";
 import { WeatherProvider } from "./src/context/WeatherContext";
 import { SavedLocationsProvider } from "./src/context/FavoriteLocations";
-
+import { NameProvider } from "./src/context/NameContext";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
+
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { registerBackgroundFetchAsync } from "./src/services/backgroundFetch";
 import "./src/services/i18next";
-import { i18next } from "./src/services/i18next";
-import { NameProvider } from "./src/context/NameContext";
 
 function App() {
     const [languageLoaded, setLanguageLoaded] = useState(false);
@@ -33,17 +33,13 @@ function App() {
     });
 
     useEffect(() => {
-        (async () => {
+        const loadSettings = async () => {
             await Location.requestForegroundPermissionsAsync();
-        })();
-        (async () => {
             let { status } = await Notifications.getPermissionsAsync();
             if (status !== "granted") {
                 await Notifications.requestPermissionsAsync();
             }
-        })();
 
-        const loadLanguageSetting = async () => {
             const savedLanguage = await AsyncStorage.getItem("appLanguage");
             if (savedLanguage) {
                 await i18next.changeLanguage(savedLanguage);
@@ -51,9 +47,8 @@ function App() {
             setLanguageLoaded(true);
         };
 
-        loadLanguageSetting();
+        loadSettings();
     }, []);
-
     return (
         <LocationProvider>
             <WeatherProvider>

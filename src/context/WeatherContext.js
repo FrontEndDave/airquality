@@ -27,18 +27,22 @@ export const WeatherProvider = ({ children }) => {
         } catch (error) {}
     };
 
-    const getWeather = async (latitude, longitude) => {
-        try {
-            const response = await axios.get(`${BASE_URL}?key=${API_KEY}&q=${latitude},${longitude}&days=5&aqi=yes&alerts=no`);
-            setWeather(response.data);
-        } catch (error) {}
-    };
-
     const getCurrentLocationWeather = async (latitude, longitude) => {
         try {
             const response = await axios.get(`${BASE_URL}?key=${API_KEY}&q=${latitude},${longitude}&days=5&aqi=yes&alerts=no`);
             setCurrentLocationWeather(response.data);
-        } catch (error) {}
+        } catch (error) {
+            console.error("Error while fetching weather:", error);
+        }
+    };
+
+    const getWeather = async (latitude, longitude) => {
+        try {
+            const response = await axios.get(`${BASE_URL}?key=${API_KEY}&q=${latitude},${longitude}&days=5&aqi=yes&alerts=no`);
+            setWeather(response.data);
+        } catch (error) {
+            console.error("Error while fetching weather:", error);
+        }
     };
 
     const changeUnit = (type, value) => {
