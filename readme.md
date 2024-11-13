@@ -52,7 +52,7 @@ Aby zainstalować i uruchomić aplikację lokalnie, wykonaj poniższe kroki:
      ```bash
      npm install -g eas-cli
      ```
-   - Zaloguj się na swoje konto Expo:
+   - Zaloguj się na konto Expo:
      ```bash
      eas login
      ```
