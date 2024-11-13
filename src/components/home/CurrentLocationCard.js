@@ -3,7 +3,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import moment from "moment";
 import { useContext, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Animated, ImageBackground, Text, TouchableOpacity, View } from "react-native";
+import { ActivityIndicator, Animated, ImageBackground, Text, TouchableOpacity, View } from "react-native";
 
 import { APP, WEATHER_BACKGROUNDS } from "../../constants";
 
@@ -12,6 +12,16 @@ import SkeletonLoader from "../common/SkeletonPlaceholder";
 
 const CurrentLocationCard = ({ address }) => {
     const { currentLocationWeather, units } = useContext(WeatherContext);
+    if (!currentLocationWeather)
+        return (
+            <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+                <ActivityIndicator
+                    size='large'
+                    color='#2AB8A0'
+                />
+            </View>
+        );
+
     const { t } = useTranslation();
     const navigation = useNavigation();
     const [time, setTime] = useState();
