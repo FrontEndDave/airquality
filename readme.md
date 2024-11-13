@@ -23,13 +23,13 @@ Aby zainstalować i uruchomić aplikację lokalnie, wykonaj poniższe kroki:
 > ### 2. Sklonuj repozytorium
    - W terminalu wpisz:
      ```bash
-     git clone https://github.com/FrontEndDave/AirQuality
+     git clone https://github.com/FrontEndDave/airquality.git AirQuality
      ```
 
 > ### 3. Przejdź do katalogu projektu
    - Wpisz polecenie:
      ```bash
-     cd <NAZWA_FOLDERU>
+     cd AirQuality
      ```
 
 > ### 4. Zainstaluj zależności
