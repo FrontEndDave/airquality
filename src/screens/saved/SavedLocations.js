@@ -46,7 +46,7 @@ const SavedLocationsScreen = () => {
                     ) : (
                         <TouchableOpacity
                             onPress={handleSearchNavigate}
-                            style={{ width: "100%", height: 80, backgroundColor: "#E8E8E8", marginTop: 15, borderRadius: 20, display: "flex", alignItems: "center", paddingHorizontal: 15, justifyContent: "start", flexDirection: "row" }}>
+                            style={{ width: "100%", height: 70, backgroundColor: "#E8E8E8", marginTop: 15, borderRadius: 20, display: "flex", alignItems: "center", paddingHorizontal: 15, justifyContent: "start", flexDirection: "row" }}>
                             <View style={{ display: "flex", flexDirection: "column" }}>
                                 <Text style={{ fontFamily: "Medium", fontSize: 18, color: "#4d4d4d" }}>+ {t("addNewLocation")}!</Text>
                             </View>

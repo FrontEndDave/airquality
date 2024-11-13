@@ -3,9 +3,11 @@ import React from "react";
 import { SafeAreaView, Text, TouchableOpacity, View } from "react-native";
 
 import BackIcon from "../../assets/svg/backIcon";
+import { useTranslation } from "react-i18next";
 
 const Hero = ({ backIcon }) => {
     const navigation = useNavigation();
+    const { t } = useTranslation();
 
     return (
         <SafeAreaView style={{ marginHorizontal: 25 }}>
@@ -22,7 +24,7 @@ const Hero = ({ backIcon }) => {
                     </TouchableOpacity>
                 )}
                 <View style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-                    <Text style={{ fontFamily: "SemiBold", fontSize: 24 }}>Search</Text>
+                    <Text style={{ fontFamily: "SemiBold", fontSize: 24 }}>{t("searchTitle")}</Text>
                 </View>
             </View>
         </SafeAreaView>

@@ -1,20 +1,23 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Modal, Text, TouchableOpacity, View } from "react-native";
 
 import BinIcon from "../../assets/svg/bin";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import SavedLocationsContext from "../../context/FavoriteLocations";
 
 const DataSettings = () => {
     const { t } = useTranslation();
     const [isModalVisible, setModalVisible] = useState(false);
+    const { clearSavedLocations } = useContext(SavedLocationsContext);
 
     const clearAllData = async () => {
         try {
-            await AsyncStorage.clear();
-
-            setUsername("User");
-
+            const keys = await AsyncStorage.getAllKeys();
+            if (keys.length > 0) {
+                await AsyncStorage.multiRemove(keys);
+            }
+            clearSavedLocations();
             setModalVisible(false);
         } catch (error) {
             console.error("Error clearing app data:", error);

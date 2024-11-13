@@ -42,7 +42,16 @@ export const SavedLocationsProvider = ({ children }) => {
         await AsyncStorage.setItem("savedLocations", JSON.stringify(updatedLocations));
     };
 
-    return <SavedLocationsContext.Provider value={{ savedLocations, addLocation, removeLocation }}>{children}</SavedLocationsContext.Provider>;
+    const clearSavedLocations = async () => {
+        try {
+            await AsyncStorage.removeItem("savedLocations");
+            setSavedLocations([]);
+        } catch (error) {
+            console.error("Error clearing saved locations:", error);
+        }
+    };
+
+    return <SavedLocationsContext.Provider value={{ savedLocations, addLocation, removeLocation, clearSavedLocations }}>{children}</SavedLocationsContext.Provider>;
 };
 
 export default SavedLocationsContext;

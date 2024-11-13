@@ -37,18 +37,32 @@ const SavedLocationCard = ({ latitude, longitude, name }) => {
     }, [latitude, longitude]);
 
     useEffect(() => {
+        let interval;
+
         if (weather?.location?.tz_id) {
-            const interval = setInterval(() => {
-                const currentTime = new Intl.DateTimeFormat("pl-PL", {
+            try {
+                new Intl.DateTimeFormat("pl-PL", {
                     hour: "2-digit",
                     minute: "2-digit",
                     timeZone: weather.location.tz_id,
                 }).format(new Date());
-                setTime(currentTime);
-            }, 1000);
 
-            return () => clearInterval(interval);
+                interval = setInterval(() => {
+                    const currentTime = new Intl.DateTimeFormat("pl-PL", {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        timeZone: weather.location.tz_id,
+                    }).format(new Date());
+                    setTime(currentTime);
+                }, 1000);
+            } catch (error) {
+                setTime(null);
+            }
+        } else {
+            setTime(null);
         }
+
+        return () => clearInterval(interval);
     }, [weather?.location?.tz_id]);
 
     const isDayTime = weather?.current?.is_day === 1;
@@ -60,10 +74,6 @@ const SavedLocationCard = ({ latitude, longitude, name }) => {
             duration: 500,
             useNativeDriver: true,
         }).start();
-    };
-
-    const handleImageError = () => {
-        console.warn("Błąd ładowania obrazu:", backgroundImage);
     };
 
     const handleNavigateToDetails = () => {
@@ -87,7 +97,7 @@ const SavedLocationCard = ({ latitude, longitude, name }) => {
                 <View style={{ marginTop: 15, overflow: "hidden", height: "100%", width: "100%", borderRadius: 20, position: "absolute", zIndex: 999 }}>
                     <SkeletonLoader
                         width='100%'
-                        height={140}
+                        height={120}
                         borderRadius={20}
                         isLoading={isLoading}
                     />
@@ -99,7 +109,6 @@ const SavedLocationCard = ({ latitude, longitude, name }) => {
                     source={{ uri: backgroundImage }}
                     resizeMode='cover'
                     onLoadEnd={handleImageLoad}
-                    onError={handleImageError}
                     style={{ width: "100%", overflow: "hidden", backgroundColor: "#E8E8E8", height: "100%", borderRadius: 20, zIndex: 999 }}>
                     {isLoading === false && (
                         <LinearGradient
@@ -112,7 +121,7 @@ const SavedLocationCard = ({ latitude, longitude, name }) => {
                                     <Text style={{ fontFamily: "SemiBold", fontSize: 28, color: "#fff" }}>{name || "Brak danych"}</Text>
                                 </View>
                                 <View style={{ display: "flex", flexDirection: "row", alignItems: "flex-start", gap: 10 }}>
-                                    <Text style={{ fontFamily: "Medium", fontSize: 15, color: "#fff" }}>{time}</Text>
+                                    {time && <Text style={{ fontFamily: "Medium", fontSize: 15, color: "#fff" }}>{time}</Text>}
                                     <Text style={{ fontFamily: "Medium", fontSize: 15, color: "#fff" }}>AQI {weather?.current?.air_quality["us-epa-index"]}</Text>
                                 </View>
                             </View>

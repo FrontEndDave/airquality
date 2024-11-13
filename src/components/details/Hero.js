@@ -15,7 +15,7 @@ import RemoveIcon from "../../assets/svg/remove";
 const Hero = ({ name, country, coordinates, saveIcon, addIcon }) => {
     const navigation = useNavigation();
     const { t } = useTranslation();
-    const { addLocation, removeLocation } = useContext(SavedLocationsContext);
+    const { addLocation, removeLocation, savedLocations } = useContext(SavedLocationsContext);
     const { weather, units } = useContext(WeatherContext);
 
     const currentTempC = `${weather?.current?.temp_c?.toFixed(0)}°C`;
@@ -54,15 +54,19 @@ const Hero = ({ name, country, coordinates, saveIcon, addIcon }) => {
                         </Text>
                     </View>
                     {addIcon === true ? (
-                        <TouchableOpacity
-                            style={{ position: "absolute", right: 15 }}
-                            onPress={handleSaveLocation}>
-                            <AddIcon
-                                color='#000'
-                                width={36}
-                                height={36}
-                            />
-                        </TouchableOpacity>
+                        <>
+                            {savedLocations.length < 5 && (
+                                <TouchableOpacity
+                                    style={{ position: "absolute", right: 15 }}
+                                    onPress={handleSaveLocation}>
+                                    <AddIcon
+                                        color='#000'
+                                        width={36}
+                                        height={36}
+                                    />
+                                </TouchableOpacity>
+                            )}
+                        </>
                     ) : (
                         <TouchableOpacity
                             style={{ position: "absolute", right: 25, top: 8 }}

@@ -87,7 +87,7 @@ const SearchScreen = (props) => {
                                 keyExtractor={(item) => item.place_id.toString()}
                                 renderItem={({ item }) => (
                                     <TouchableOpacity onPress={() => handleSelectLocation(item)}>
-                                        <Text style={{ padding: 10, borderBottomWidth: 5, borderColor: "#000", paddingBottom: 5, fontFamily: "Medium", fontSize: 16 }}>{item.display_name}</Text>
+                                        <Text style={{ padding: 10, fontFamily: "Medium", fontSize: 16 }}>{item.display_name}</Text>
                                     </TouchableOpacity>
                                 )}
                                 style={{ borderRadius: 10, marginTop: 10, height: "auto", elevation: 5 }}

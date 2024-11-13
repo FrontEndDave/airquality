@@ -73,29 +73,6 @@ const SettingsUnitsScreen = () => {
                         isSelected={units.temperature === "fahrenheit"}
                     />
                 </View>
-                <View style={{ display: "flex", flexDirection: "column", width: "100%", marginTop: 45 }}>
-                    <Text style={{ fontSize: 22, fontFamily: "SemiBold", marginBottom: 8 }}>{t("settings.units.speed")}</Text>
-                    <UnitCard
-                        name='mph'
-                        code='mph'
-                        isSelected={units.speed === "mph"}
-                    />
-                    <UnitCard
-                        name='km/h'
-                        code='km/h'
-                        isSelected={units.speed === "km/h"}
-                    />
-                    <UnitCard
-                        name='m/s'
-                        code='m/s'
-                        isSelected={units.speed === "m/s"}
-                    />
-                    <UnitCard
-                        name='knots'
-                        code='knots'
-                        isSelected={units.speed === "knots"}
-                    />
-                </View>
             </ScrollView>
         </View>
     );

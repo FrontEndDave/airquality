@@ -24,18 +24,32 @@ const FavoritePlaceCard = ({ name, country, latitude, longitude }) => {
     };
 
     useEffect(() => {
+        let interval;
+
         if (weather?.location?.tz_id) {
-            const interval = setInterval(() => {
-                const currentTime = new Intl.DateTimeFormat("pl-PL", {
+            try {
+                new Intl.DateTimeFormat("pl-PL", {
                     hour: "2-digit",
                     minute: "2-digit",
                     timeZone: weather.location.tz_id,
                 }).format(new Date());
-                setTime(currentTime);
-            }, 1000);
 
-            return () => clearInterval(interval);
+                interval = setInterval(() => {
+                    const currentTime = new Intl.DateTimeFormat("pl-PL", {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        timeZone: weather.location.tz_id,
+                    }).format(new Date());
+                    setTime(currentTime);
+                }, 1000);
+            } catch (error) {
+                setTime(null);
+            }
+        } else {
+            setTime(null);
         }
+
+        return () => clearInterval(interval);
     }, [weather?.location?.tz_id]);
 
     useEffect(() => {
@@ -92,7 +106,7 @@ const FavoritePlaceCard = ({ name, country, latitude, longitude }) => {
                                     <Text style={{ fontFamily: "SemiBold", fontSize: 28, color: "#fff" }}>{weather ? name : "Brak danych"}</Text>
                                 </View>
                                 <View style={{ display: "flex", flexDirection: "row", alignItems: "flex-start", gap: 10 }}>
-                                    <Text style={{ fontFamily: "Medium", fontSize: 15, color: "#fff" }}>{time}</Text>
+                                    {time && <Text style={{ fontFamily: "Medium", fontSize: 15, color: "#fff" }}>{time}</Text>}
                                     <Text style={{ fontFamily: "Medium", fontSize: 15, color: "#fff" }}>AQI {weather ? weather.current.air_quality["us-epa-index"] : "Brak danych"}</Text>
                                 </View>
                             </View>

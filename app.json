@@ -1,57 +1,73 @@
 {
-    "expo": {
-        "name": "qirquality",
-        "slug": "airquality",
-        "newArchEnabled": true,
-        "version": "1.0.0",
-        "orientation": "portrait",
-        "platforms": ["ios", "android"],
-        "icon": "./assets/icon.png",
-        "userInterfaceStyle": "light",
-        "splash": {
-            "image": "./assets/splash.png",
-            "resizeMode": "contain",
-            "backgroundColor": "#ffffff"
-        },
-        "ios": {
-            "supportsTablet": true,
-            "bundleIdentifier": "com.airquality.app",
-            "infoPlist": {
-                "NSLocationWhenInUseUsageDescription": "Aplikacja potrzebuje dostępu do lokalizacji.",
-                "NSLocationAlwaysUsageDescription": "Aplikacja potrzebuje dostępu do lokalizacji w tle.",
-                "UIBackgroundModes": ["location", "fetch", "remote-notification"],
-                "cameraUsagePermission": "$(PRODUCT_NAME) uses your camera for AR experiences. This is a custom InfoPlist string!",
-                "microphoneUsagePermission": "$(PRODUCT_NAME) uses your microphone for AR experiences. This is a custom InfoPlist string!",
-                "photosPermission": "$(PRODUCT_NAME) would like to read photos for AR experiences. This is a custom InfoPlist string!",
-                "savephotosPermission": "$(PRODUCT_NAME) would like to save photos to your library during AR experiences. This is a custom InfoPlist string!"
-            }
-        },
-        "web": {
-            "favicon": "./assets/favicon.png"
-        },
-        "extra": {
-            "eas": {
-                "projectId": "c8fba532-8a6c-4679-bf5b-4c7d9f20b057"
-            }
-        },
-        "owner": "ciemnykoksu",
-        "runtimeVersion": {
-            "policy": "appVersion"
-        },
-        "updates": {
-            "url": "https://u.expo.dev/c8fba532-8a6c-4679-bf5b-4c7d9f20b057"
-        },
-        "plugins": [
-            ["expo-localization"],
-            [
-                "expo-location",
-                {
-                    "isIosBackgroundLocationEnabled": true,
-                    "locationAlwaysPermission": "Allow AirQuality to use your location in the background."
-                }
-            ],
-            "expo-asset",
-            "expo-font"
-        ]
+  "expo": {
+    "name": "qirquality",
+    "slug": "airquality",
+    "newArchEnabled": true,
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.airquality.app",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Aplikacja potrzebuje dostępu do lokalizacji.",
+        "NSLocationAlwaysUsageDescription": "Aplikacja potrzebuje dostępu do lokalizacji w tle.",
+        "UIBackgroundModes": [
+          "location",
+          "fetch",
+          "remote-notification"
+        ],
+        "cameraUsagePermission": "$(PRODUCT_NAME) uses your camera for AR experiences. This is a custom InfoPlist string!",
+        "microphoneUsagePermission": "$(PRODUCT_NAME) uses your microphone for AR experiences. This is a custom InfoPlist string!",
+        "photosPermission": "$(PRODUCT_NAME) would like to read photos for AR experiences. This is a custom InfoPlist string!",
+        "savephotosPermission": "$(PRODUCT_NAME) would like to save photos to your library during AR experiences. This is a custom InfoPlist string!"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "c8fba532-8a6c-4679-bf5b-4c7d9f20b057"
+      }
+    },
+    "owner": "ciemnykoksu",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/c8fba532-8a6c-4679-bf5b-4c7d9f20b057"
+    },
+    "plugins": [
+      [
+        "expo-localization"
+      ],
+      [
+        "expo-location",
+        {
+          "isIosBackgroundLocationEnabled": true,
+          "locationAlwaysPermission": "Allow AirQuality to use your location in the background."
+        }
+      ],
+      "expo-asset",
+      "expo-font"
+    ],
+    "android": {
+      "permissions": [
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION"
+      ],
+      "package": "com.airquality.app"
     }
+  }
 }
