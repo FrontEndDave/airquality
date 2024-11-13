@@ -1,57 +1,66 @@
 {
-    "expo": {
-        "name": "AirQuality",
-        "slug": "airquality",
-        "newArchEnabled": true,
-        "version": "1.0.0",
-        "orientation": "portrait",
-        "platforms": ["ios", "android"],
-        "icon": "./assets/icon.png",
-        "userInterfaceStyle": "light",
-        "splash": {
-            "image": "./assets/splash.png",
-            "resizeMode": "contain",
-            "backgroundColor": "#ffffff"
-        },
-        "ios": {
-            "supportsTablet": true,
-            "bundleIdentifier": "com.airquality.app",
-            "infoPlist": {
-                "NSLocationWhenInUseUsageDescription": "The app requires access to your location.",
-                "NSLocationAlwaysUsageDescription": "The app needs background location access.",
-                "UIBackgroundModes": ["location", "fetch"]
-            }
-        },
-        "android": {
-            "permissions": ["android.permission.ACCESS_COARSE_LOCATION", "android.permission.ACCESS_FINE_LOCATION"],
-            "package": "com.airquality.app"
-        },
-        "web": {
-            "favicon": "./assets/favicon.png"
-        },
-        "extra": {
-            "eas": {
-                "projectId": "34777d3b-7ee7-49ba-9c5d-8691c1e5accd"
-            }
-        },
-        "owner": "dawidpiela",
-        "runtimeVersion": {
-            "policy": "appVersion"
-        },
-        "updates": {
-            "url": "https://u.expo.dev/c8fba532-8a6c-4679-bf5b-4c7d9f20b057"
-        },
-        "plugins": [
-            "expo-localization",
-            [
-                "expo-location",
-                {
-                    "isIosBackgroundLocationEnabled": true,
-                    "locationAlwaysPermission": "Allow AirQuality to use your location in the background."
-                }
-            ],
-            "expo-asset",
-            "expo-font"
+  "expo": {
+    "name": "AirQuality",
+    "slug": "airquality",
+    "newArchEnabled": true,
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.airquality.app",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "The app requires access to your location.",
+        "NSLocationAlwaysUsageDescription": "The app needs background location access.",
+        "UIBackgroundModes": [
+          "location",
+          "fetch"
         ]
-    }
+      }
+    },
+    "android": {
+      "permissions": [
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION"
+      ],
+      "package": "com.airquality.app"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "34777d3b-7ee7-49ba-9c5d-8691c1e5accd"
+      }
+    },
+    "owner": "dawidpiela",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/34777d3b-7ee7-49ba-9c5d-8691c1e5accd"
+    },
+    "plugins": [
+      "expo-localization",
+      [
+        "expo-location",
+        {
+          "isIosBackgroundLocationEnabled": true,
+          "locationAlwaysPermission": "Allow AirQuality to use your location in the background."
+        }
+      ],
+      "expo-asset",
+      "expo-font"
+    ]
+  }
 }
