@@ -20,7 +20,7 @@ Aby zainstalować i uruchomić aplikację lokalnie, wykonaj poniższe kroki:
      node -v
      ```
 
-> ### > 2. Sklonuj repozytorium
+> ### 2. Sklonuj repozytorium
    - W terminalu wpisz:
      ```bash
      git clone https://github.com/FrontEndDave/AirQuality
